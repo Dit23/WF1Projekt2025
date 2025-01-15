@@ -1,4 +1,7 @@
 <?php
+include './shared/global.php';
+global $pdo;
+
 ?>
 
 <!doctype html>
@@ -9,8 +12,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 <body>
 Hallo World
+<h1>TEst</h1>
+<?php
+if (isset($_SESSION["test"])){
+    echo "<h1>" . $_SESSION["test"] . "</h1>";
+}
+
+$stmt = $pdo->query("SELECT * FROM klassen");
+while ($row = $stmt->fetch()) {
+    echo $row["klassenName"] . "<br>";
+}
+
+
+?>
 </body>
 </html>
