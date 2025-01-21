@@ -22,6 +22,20 @@ try {
 }
 
 //Standard Tabellen erstellen
-$pdo->query('
 
+# Klassen
+# | id (index) | name | hashPasswort | admin (default: false) | erstelltAm | geaendertAm | untisUsername | untisPasswort |
+
+//MySQL PhpMyAdmin Syntax
+$pdo->query('
+CREATE TABLE IF NOT EXISTS klassen (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    hashPasswort VARCHAR(255) NOT NULL,
+    admin BOOLEAN DEFAULT FALSE,
+    erstelltAm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    geaendertAm TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    untisUsername VARCHAR(255),
+    untisPasswort VARCHAR(255)
+)
 ');
