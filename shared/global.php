@@ -16,5 +16,12 @@ if (session_status() == PHP_SESSION_NONE) {
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=wf1', "root", "");
 } catch (PDOException $e) {
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Datenbankverbindung konnte nicht hergestellt werden']);
     die();
 }
+
+//Standard Tabellen erstellen
+$pdo->query('
+
+');

@@ -14,20 +14,15 @@ global $pdo;
     <title>Document</title>
 
 </head>
-<body>
-Hallo World
-<h1>TEst</h1>
 <?php
-if (isset($_SESSION["test"])){
-    echo "<h1>" . $_SESSION["test"] . "</h1>";
-}
-
-$stmt = $pdo->query("SELECT * FROM klassen");
-while ($row = $stmt->fetch()) {
-    echo $row["klassenName"] . "<br>";
-}
-
-
+include './shared/header.php';
 ?>
+<body>
+    <?php
+
+    ?>
 </body>
+<?php
+include './shared/footer.php';
+?>
 </html>
