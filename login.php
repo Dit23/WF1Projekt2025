@@ -24,22 +24,43 @@
             </div>
 
             <div class="modal-body p-5 pt-0">
-                <form class="" action="processLogin.php">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Username" name="username" required>
-                        <label for="floatingInput">Klassenname</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="password" required>
-                        <label for="floatingPassword">Passwort</label>
-                    </div>
-                    <form action="processLogin.php">
-                        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">
-                            <i class="fa-solid fa-right-to-bracket"></i>
-                            Anmelden
-                        </button>
-                    </form>
+                <form action="" id="loginForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Username" name="username" required>
+                    <label for="floatingInput">Klassenname</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="password" required>
+                    <label for="floatingPassword">Passwort</label>
+                </div>
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="loginButton">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Anmelden
+                </button>
                 </form>
+
+                <script>
+
+                    document.getElementById("loginForm").addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        var formData = new FormData();
+                        formData.append('method', 'login');
+                        formData.append('floatingInput', document.getElementById('floatingInput').value);
+                        formData.append('floatingPassword', document.getElementById('floatingPassword').value);
+
+                        fetch('api', {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    window.location.href = 'index.php';
+                                } else {
+                                    alert(data.message);
+                                }
+                            });
+                    });
+                </script>
             </div>
         </div>
     </div>
