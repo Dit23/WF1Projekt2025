@@ -1,24 +1,23 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
-
-<a href="./" class="btn btn-primary">
-    Home
-</a>
-<button id="logoutButton" class="btn btn-primary">
-    Logout
-</button>
-<?php
-if ($_SESSION['admin'] === true) {
-    ?>
-    <a href="admin" class="btn btn-primary">
-        Admin
+<header>
+    <a href="./" class="btn btn-primary">
+        Home
     </a>
+    <button id="logoutButton" class="btn btn-primary">
+        Logout
+    </button>
     <?php
-}
-?>
-
-
+    if ($_SESSION['admin'] === true) {
+        ?>
+        <a href="admin" class="btn btn-primary">
+            Admin
+        </a>
+        <?php
+    }
+    ?>
+</header>
 
 <script>
     document.getElementById('logoutButton').addEventListener('click', function () {
