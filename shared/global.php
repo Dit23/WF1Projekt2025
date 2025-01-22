@@ -39,3 +39,28 @@ CREATE TABLE IF NOT EXISTS klassen (
     untisPasswort VARCHAR(255)
 )
 ');
+
+# Wenn die Tabelle leer ist, wird ein Standard Account erstellt mit dem Namen "admin" und dem Passwort "admin"
+$statement = $pdo->prepare('SELECT * FROM klassen');
+$statement->execute();
+$klassen = $statement->fetchAll();
+
+if (count($klassen) === 0) {
+    $statement = $pdo->prepare('INSERT INTO klassen (name, hashPasswort, admin) VALUES (:name, :hashPasswort, :admin)');
+    $statement->bindParam(':name', $name);
+    $statement->bindParam(':hashPasswort', $hashPasswort);
+    $statement->bindParam(':admin', $admin);
+
+    $name = 'admin';
+    $hashPasswort = password_hash('admin', PASSWORD_DEFAULT);
+    $admin = true;
+
+    $statement->execute();
+}
+
+//wenn der benuzter nicht eingeloggt ist, dann wird er auf die login seite weitergeleitet
+$allowed = ['login.php', 'api.php', 'error.php'];
+if (in_array(basename($_SERVER['PHP_SELF']), $allowed) === false && isset($_SESSION['admin']) === false) {
+    header('Location: login.php');
+    die();
+}

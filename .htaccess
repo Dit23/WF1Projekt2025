@@ -9,8 +9,11 @@ RewriteRule ^api/?$ api.php [L]
 # Umschreiben von "localhost/login/" auf "localhost/login.php"
 RewriteRule ^login/?$ login.php [L]
 
+# Umschreiben von "localhost/error/" auf "localhost/error.php"
+RewriteRule ^error/?$ error.php [L]
+
 <FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
     Order Allow,Deny
     Deny from all
-    ErrorDocument 403 /Kochbuch/error?code=403
+    ErrorDocument 403 /error?code=403
 </FilesMatch>

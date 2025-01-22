@@ -22,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 die();
             }
 
+            if ($_POST['username'] === '' || $_POST['password'] === '') {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Benutzername oder Passwort leer']);
+                die();
+            }
+
             $username = $_POST['username'];
             $password = $_POST['password'];
 
@@ -51,6 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'createNewClassAccount':
             if (isset($_POST['username']) === false || isset($_POST['password']) === false) {
                 echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Benutzername oder Passwort nicht gefunden']);
+                die();
+            }
+
+            if (isset($_SESSION['admin']) === false || $_SESSION['admin'] === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
                 die();
             }
 
