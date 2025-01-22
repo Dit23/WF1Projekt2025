@@ -45,8 +45,8 @@
                         event.preventDefault();
                         var formData = new FormData();
                         formData.append('method', 'login');
-                        formData.append('floatingInput', document.getElementById('floatingInput').value);
-                        formData.append('floatingPassword', document.getElementById('floatingPassword').value);
+                        formData.append('username', document.getElementById('floatingInput').value);
+                        formData.append('password', document.getElementById('floatingPassword').value);
 
                         fetch('api', {
                             method: 'POST',
