@@ -12,6 +12,9 @@ RewriteRule ^login/?$ login.php [L]
 # Umschreiben von "localhost/error/" auf "localhost/error.php"
 RewriteRule ^error/?$ error.php [L]
 
+# Umschreiben von "localhost/admin/" auf "localhost/admin.php"
+RewriteRule ^admin/?$ admin.php [L]
+
 <FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
     Order Allow,Deny
     Deny from all

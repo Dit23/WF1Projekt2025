@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['userId'] = $user['id'];
             $_SESSION['name'] = $user['name'];
-            $_SESSION['admin'] = $user['admin'];
+            $_SESSION['admin'] = ($user['admin'] === 1);
 
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Login erfolgreich']);
             break;
@@ -81,6 +81,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_destroy();
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Logout erfolgreich']);
             break;
+        case 'getAllClasses':
+            $statement = $pdo->prepare('SELECT * FROM klassen');
+            $statement->execute();
+
+            $classes = $statement->fetchAll();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'classes' => $classes]);
+            break;
+        case 'deleteClass':
+            if (isset($_POST['id']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'ID nicht gefunden']);
+                die();
+            }
+
+            if (isset($_SESSION['admin']) === false || $_SESSION['admin'] === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            $id = $_POST['id'];
+
+            $statement = $pdo->prepare('DELETE FROM klassen WHERE id = :id');
+            $statement->bindParam(':id', $id);
+            $statement->execute();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Klasse erfolgreich gelöscht']);
+            break;
+
         default:
             echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Methode nicht gefunden']);
     }

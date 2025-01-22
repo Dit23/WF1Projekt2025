@@ -8,19 +8,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/ba744107d9.js" crossorigin="anonymous"></script>
+    <?php
+    include './shared/head.php';
+    ?>
 </head>
 <body>
 <div class="modal modal-sheet position-static bg-body-secondary" tabindex="-1" role="dialog" id="modalSignin" style="height: 100vh; display: flex; align-items: center; justify-content: center">
     <div class="modal-dialog" role="document">
+        <img src="https://arche.webuntis.com/WebUntis/pimage.do?cat=23&id=1" alt="" style="display: block; width: calc(100% - 2rem); max-width: 200px; height: auto; margin: 0 auto 2rem; border-radius: 5px;">
         <div class="modal-content rounded-4 shadow">
             <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2">Willkommen zurück!</h1>
-                <form action="index.php">
-                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </form>
             </div>
 
             <div class="modal-body p-5 pt-0">

@@ -61,6 +61,24 @@ if (count($klassen) === 0) {
 //wenn der benuzter nicht eingeloggt ist, dann wird er auf die login seite weitergeleitet
 $allowed = ['login.php', 'api.php', 'error.php'];
 if (in_array(basename($_SERVER['PHP_SELF']), $allowed) === false && isset($_SESSION['admin']) === false) {
-    header('Location: login.php');
+    session_destroy();
+    header('Location: login');
     die();
+}
+
+//wenn der benuzter eingeloggt ist dann überschreibe seinen admin status aus der datenbank
+if (isset($_SESSION['userId'])) {
+    $statement = $pdo->prepare('SELECT * FROM klassen WHERE id = :id');
+    $statement->bindParam(':id', $_SESSION['userId']);
+    $statement->execute();
+
+    $user = $statement->fetch();
+
+    if ($user === false && !in_array(basename($_SERVER['PHP_SELF']), $allowed)) {
+        session_destroy();
+        header('Location: login');
+        die();
+    }
+
+    $_SESSION['admin'] = ($user['admin'] === 1);
 }
