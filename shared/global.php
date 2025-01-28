@@ -80,5 +80,5 @@ if (isset($_SESSION['userId'])) {
         die();
     }
 
-    $_SESSION['admin'] = ($user['admin'] === 1);
+    $_SESSION['admin'] = ($user['admin'] == 1);
 }
