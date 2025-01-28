@@ -15,8 +15,8 @@
 <body>
 <div class="modal modal-sheet position-static bg-body-secondary" tabindex="-1" role="dialog" id="modalSignin" style="height: 100vh; display: flex; align-items: center; justify-content: center">
     <div class="modal-dialog" role="document">
-        <img src="https://arche.webuntis.com/WebUntis/pimage.do?cat=23&id=1" alt="" style="display: block; width: calc(100% - 2rem); max-width: 200px; height: auto; margin: 0 auto 2rem; border-radius: 5px;">
         <div class="modal-content rounded-4 shadow">
+            <img src="https://i.ibb.co/h13ThT1/bkodatteln-logo.png" alt="" style="display: block; width: calc(100% - 2rem); max-width: 200px; height: auto; margin: auto auto -3em; border-radius: 5px;">
             <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2">Willkommen zurück!</h1>
             </div>
