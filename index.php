@@ -19,8 +19,15 @@ global $pdo;
 <?php
 include './shared/header.php';
 ?>
-<body>
-
+<body class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Willkommen!</h1>
+        </div>
+        <div class="card-body">
+            <p>Willkommen auf der Startseite des digitalen Schulplaners.</p>
+        </div>
+    </div>
 </body>
 <?php
 include './shared/footer.php';
