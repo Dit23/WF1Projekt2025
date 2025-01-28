@@ -15,7 +15,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                 <?php
                 if ($_SESSION['admin'] === true) {
                     ?>
-                    <li><a href="admin" class="btn btn-primary">Admin</a></li>
+                    <li class="nav-item"><a href="admin" class="nav-link">Admin</a></li>
                     <?php
                 }
                 ?>
