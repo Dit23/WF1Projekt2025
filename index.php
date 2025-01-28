@@ -25,7 +25,7 @@ include './shared/header.php';
             <h1>Willkommen!</h1>
         </div>
         <div class="card-body">
-            <p>Willkommen auf der Startseite des digitalen Schulplaners. Hier können Sie Ihre Klassen verwalten und den Stundenplan einsehen.</p>
+            <p>Willkommen auf der Startseite des digitalen Schulplaners.</p>
         </div>
     </div>
 </body>
