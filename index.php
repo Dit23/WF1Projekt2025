@@ -20,9 +20,7 @@ global $pdo;
 include './shared/header.php';
 ?>
 <body>
-    <?php
 
-    ?>
 </body>
 <?php
 include './shared/footer.php';
