@@ -10,7 +10,7 @@ class UntisAPI {
         $this->username = $username;
         $this->secret = $secret;
         $this->school = $school;
-        $this->url = "https://arche.webuntis.com/WebUntis/jsonrpc_intern.do?a=0&m=getTimetable2017&s=arche.webuntis.com&school=${school}&v=i3.45.1";
+        $this->url = "https://arche.webuntis.com/WebUntis/jsonrpc_intern.do?a=0&m=getTimetable2017&s=arche.webuntis.com&school={$school}&v=i3.45.1";
     }
 
     private function base32ToBase64($base32) {

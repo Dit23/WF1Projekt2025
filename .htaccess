@@ -15,6 +15,9 @@ RewriteRule ^error/?$ error.php [L]
 # Umschreiben von "localhost/admin/" auf "localhost/admin.php"
 RewriteRule ^admin/?$ admin.php [L]
 
+# Umschreiben von "localhost/calendar/" auf "localhost/calendar.php"
+RewriteRule ^calendar/?$ calendar.php [L]
+
 <FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
     Order Allow,Deny
     Deny from all

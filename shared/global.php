@@ -82,3 +82,14 @@ if (isset($_SESSION['userId'])) {
 
     $_SESSION['admin'] = ($user['admin'] == 1);
 }
+
+//get class of logged in user
+function getKlasse()
+{
+    global $pdo;
+    $statement = $pdo->prepare('SELECT * FROM klassen WHERE id = :id');
+    $statement->bindParam(':id', $_SESSION['userId']);
+    $statement->execute();
+
+    return $statement->fetch();
+}

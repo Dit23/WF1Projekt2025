@@ -1,6 +1,18 @@
 <?php
 include './shared/global.php';
+include './shared/untisAPI.php';
 global $pdo;
+
+$untisAPI = new UntisAPI(getKlasse()['untisUsername'], getKlasse()['untisPasswort'], "BK-Ostvest");
+
+
+//today date
+$today = date('Ymd');
+
+//date in 7 days
+$nextWeek = date('Ymd', strtotime('+7 days'));
+
+echo $untisAPI->fetchHomeworks($today, $nextWeek);
 
 ?>
 
