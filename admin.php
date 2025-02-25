@@ -98,6 +98,120 @@ include './shared/footer.php';
                         classEditButton.classList.add('btn-primary');
                         classEditButton.innerHTML = 'Bearbeiten';
 
+                        classEditButton.addEventListener('click', function () {
+                            const formBackground = document.createElement('div');
+                            formBackground.style.position = 'fixed';
+                            formBackground.style.top = '0';
+                            formBackground.style.left = '0';
+                            formBackground.style.width = '100%';
+                            formBackground.style.height = '100%';
+                            formBackground.style.zIndex = '1000';
+                            formBackground.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+
+                            //wenn man formBackground klickt, wird es geschlossen, wenn man kein child von formContainer klickt
+                            formBackground.addEventListener('click', function (event) {
+                                if (event.target === formBackground) {
+                                    formBackground.remove();
+                                }
+                            });
+
+                            const formContainer = document.createElement('div');
+                            formContainer.style.position = 'absolute';
+                            formContainer.style.top = '50%';
+                            formContainer.style.left = '50%';
+                            formContainer.style.transform = 'translate(-50%, -50%)';
+                            formContainer.style.backgroundColor = 'white';
+                            formContainer.style.padding = '1em';
+                            formContainer.style.borderRadius = '5px';
+                            formContainer.style.width = 'clamp(300px, 50%, 500px)';
+
+                            //überschrift
+                            const formTitle = document.createElement('h1');
+                            formTitle.innerHTML = 'Klasse bearbeiten';
+                            formTitle.style.textAlign = 'center';
+                            formContainer.appendChild(formTitle);
+
+                            //input für passwort, name, untis-username, untis-key, untis-schoolname
+
+                            const inputNameUEberschrift = document.createElement('h2');
+                            inputNameUEberschrift.innerHTML = 'Klassenname';
+                            formContainer.appendChild(inputNameUEberschrift);
+
+                            const inputName = document.createElement('input');
+                            inputName.type = 'text';
+                            inputName.placeholder = 'Klassenname';
+                            inputName.value = klass.name;
+                            inputName.style.width = '100%';
+                            formContainer.appendChild(inputName);
+
+                            const inputPasswordUEberschrift = document.createElement('h2');
+                            inputPasswordUEberschrift.innerHTML = 'Passwort';
+                            formContainer.appendChild(inputPasswordUEberschrift);
+
+                            const inputPassword = document.createElement('input');
+                            inputPassword.type = 'password';
+                            inputPassword.placeholder = 'Neues Passwort';
+                            inputPassword.style.width = '100%';
+                            formContainer.appendChild(inputPassword);
+
+                            const inputUntisUsernameUEberschrift = document.createElement('h2');
+                            inputUntisUsernameUEberschrift.innerHTML = 'Untis Benutzername';
+                            formContainer.appendChild(inputUntisUsernameUEberschrift);
+
+                            const inputUntisUsername = document.createElement('input');
+                            inputUntisUsername.type = 'text';
+                            inputUntisUsername.placeholder = 'Untis Benutzername';
+                            inputUntisUsername.value = klass.untisUsername;
+                            inputUntisUsername.style.width = '100%';
+                            formContainer.appendChild(inputUntisUsername);
+
+                            const inputUntisKeyUEberschrift = document.createElement('h2');
+                            inputUntisKeyUEberschrift.innerHTML = 'Untis Key';
+                            formContainer.appendChild(inputUntisKeyUEberschrift);
+
+                            const inputUntisKey = document.createElement('input');
+                            inputUntisKey.type = 'text';
+                            inputUntisKey.placeholder = 'Untis Key';
+                            inputUntisKey.value = klass.untisPasswort;
+                            inputUntisKey.style.width = '100%';
+                            formContainer.appendChild(inputUntisKey);
+
+                            formBackground.appendChild(formContainer);
+                            document.body.appendChild(formBackground);
+
+                            const saveButton = document.createElement('button');
+                            saveButton.classList.add('btn');
+                            saveButton.classList.add('btn-primary');
+                            saveButton.innerHTML = 'Speichern';
+                            saveButton.style.width = '100%';
+                            saveButton.style.marginTop = '1em';
+
+                            saveButton.addEventListener('click', function () {
+                                var formData = new FormData();
+                                formData.append('method', 'updateClass');
+                                formData.append('id', klass.id);
+                                formData.append('name', inputName.value);
+                                formData.append('password', inputPassword.value);
+                                formData.append('untisUsername', inputUntisUsername.value);
+                                formData.append('untisKey', inputUntisKey.value);
+
+                                fetch('api', {
+                                    method: 'POST',
+                                    body: formData
+                                }).then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            reloadClasses();
+                                            formBackground.remove();
+                                        } else {
+                                            alert(data.message);
+                                        }
+                                    });
+                            });
+
+                            formContainer.appendChild(saveButton);
+                        });
+
                         var classDeleteButton = document.createElement('button');
                         classDeleteButton.classList.add('btn');
                         classDeleteButton.classList.add('btn-danger');

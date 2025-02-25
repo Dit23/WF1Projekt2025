@@ -108,6 +108,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Klasse erfolgreich gelöscht']);
             break;
+        case 'updateClass':
+            if (isset($_SESSION['admin']) === false || $_SESSION['admin'] === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            if (isset($_POST['id']) === false || isset($_POST['name']) === false || isset($_POST['password']) === false || isset($_POST['untisUsername']) === false || isset($_POST['untisKey']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'ID, Name, Passwort, Untis Benutzername oder Untis Key nicht gefunden']);
+                die();
+            }
+
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $password = $_POST['password'];
+            $hashPassword = $password !== '' ? password_hash($password, PASSWORD_DEFAULT) : null;
+
+            $untisUsername = $_POST['untisUsername'];
+            $untisKey = $_POST['untisKey'];
+
+            if ($hashPassword !== null) {
+                $statement = $pdo->prepare('UPDATE klassen SET name = :name, hashPasswort = :hashPasswort, untisUsername = :untisUsername, untisPasswort = :untisPasswort WHERE id = :id');
+            }else {
+                $statement = $pdo->prepare('UPDATE klassen SET name = :name, untisUsername = :untisUsername, untisPasswort = :untisPasswort WHERE id = :id');
+            }
+            $statement->bindParam(':id', $id);
+            $statement->bindParam(':name', $name);
+            if ($hashPassword !== null) {
+                $statement->bindParam(':hashPasswort', $hashPassword);
+            }
+            $statement->bindParam(':untisUsername', $untisUsername);
+            $statement->bindParam(':untisPasswort', $untisKey);
+            $statement->execute();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Klasse erfolgreich aktualisiert']);
+            break;
+
 
         default:
             echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Methode nicht gefunden']);

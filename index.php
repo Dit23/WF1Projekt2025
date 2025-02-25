@@ -21,14 +21,6 @@ global $pdo;
 include './shared/header.php';
 ?>
 <body class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1>Willkommen!</h1>
-        </div>
-        <div class="card-body">
-            <p>Willkommen auf der Startseite des digitalen Schulplaners.</p>
-        </div>
-    </div>
     <h2>5.2 Schul- und Hausordnung</h2>
     <p>Das Berufskolleg Ostvest versteht sich als Ort des gemeinsamen Lernens. Erfolgreiches Zusammenleben und -arbeiten in unserer Schule sind abhängig vom Wohlbefinden aller Mitglieder der Schulgemeinschaft. Daher sind alle Schüler*innen, Lehrkräfte sowie Eltern und Ausbildende nachdrücklich aufgerufen, bei der demokratischen Gestaltung unseres Schullebens zusammenzuwirken und Verantwortung zu übernehmen. Diese Schul- und Hausordnung schafft die Voraussetzungen für die gemeinsame Arbeit am Berufskolleg Ostvest. Hierbei sind folgende Grundsätze wichtig:</p>
     <ul>
