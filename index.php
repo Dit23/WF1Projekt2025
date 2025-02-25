@@ -17,10 +17,27 @@ global $pdo;
     include './shared/head.php';
     ?>
 </head>
+<div class="header">
 <?php
 include './shared/header.php';
 ?>
-<body class="container">
+</div>
+<body class="container" id="index-container">
+<div class="table-of-contents">
+    <ul>
+        <li>test1</li>
+        <li>a</li>
+    </ul>
+</div>
+<div class="inhalt">
+    <div class="card">
+        <div class="card-header">
+            <h1>Willkommen!</h1>
+        </div>
+        <div class="card-body">
+            <p>Willkommen auf der Startseite des digitalen Schulplaners.</p>
+        </div>
+    </div>
     <h2>5.2 Schul- und Hausordnung</h2>
     <p>Das Berufskolleg Ostvest versteht sich als Ort des gemeinsamen Lernens. Erfolgreiches Zusammenleben und -arbeiten in unserer Schule sind abhängig vom Wohlbefinden aller Mitglieder der Schulgemeinschaft. Daher sind alle Schüler*innen, Lehrkräfte sowie Eltern und Ausbildende nachdrücklich aufgerufen, bei der demokratischen Gestaltung unseres Schullebens zusammenzuwirken und Verantwortung zu übernehmen. Diese Schul- und Hausordnung schafft die Voraussetzungen für die gemeinsame Arbeit am Berufskolleg Ostvest. Hierbei sind folgende Grundsätze wichtig:</p>
     <ul>
@@ -75,8 +92,47 @@ include './shared/header.php';
         <li>Für die Befreiung vom Sportunterricht (z. B. bei Krankheiten) ist die Sportlehrkraft zuständig. Die Klassenleitung wird informiert.</li>
         <li>Für die Befreiung vom Religionsunterricht gelten besondere Bestimmungen.</li>
     </ul>
+</div>
 </body>
+<style>
+    #index-container {
+        display: grid;
+        grid-template-columns: 20% auto;
+        grid-template-rows: auto auto auto;
+    }
+
+    .header {
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+    }
+
+    .footer {
+        grid-row: 3 / 4;
+        grid-column: 1 / 3;
+    }
+
+    .table-of-contents {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        position: sticky;
+        top: 0;
+        padding: 10px;
+        border-right: 1px solid #ccc;
+    }
+
+    .inhalt {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        padding: 10px;
+    }
+
+    .table-of-contents ul {
+        color: #007bff;
+    }
+</style>
+<div class="footer">
 <?php
 include './shared/footer.php';
 ?>
+</div>
 </html>
