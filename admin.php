@@ -20,6 +20,51 @@ if ($_SESSION['admin'] === false) {
     <?php
     include './shared/head.php';
     ?>
+
+    <style>
+        .form-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 1em;
+            border-radius: 5px;
+            width: clamp(300px, 50%, 500px);
+        }
+
+        .form-title {
+            text-align: center;
+        }
+
+        .input-ueberschrift {
+            font-size: 1.2em;
+        }
+
+        .input-field {
+            width: 100%;
+            margin-bottom: 1em;
+            background-color: #f1f1f1;
+            border: none;
+            padding: 0.5em;
+            border-radius: 5px;
+        }
+
+        .save-button {
+            width: 100%;
+            margin-top: 1em;
+        }
+    </style>
 </head>
 <?php
 include './shared/header.php';
@@ -97,6 +142,104 @@ include './shared/footer.php';
                         classEditButton.classList.add('btn');
                         classEditButton.classList.add('btn-primary');
                         classEditButton.innerHTML = 'Bearbeiten';
+
+                        classEditButton.addEventListener('click', function () {
+                            const formBackground = document.createElement('div');
+                            formBackground.classList.add('form-background');
+
+                            formBackground.addEventListener('click', function (event) {
+                                if (event.target === formBackground) {
+                                    formBackground.remove();
+                                }
+                            });
+
+                            const formContainer = document.createElement('div');
+                            formContainer.classList.add('form-container');
+
+                            const formTitle = document.createElement('h1');
+                            formTitle.classList.add('form-title');
+                            formTitle.innerHTML = 'Klasse bearbeiten';
+                            formContainer.appendChild(formTitle);
+
+                            const inputNameUEberschrift = document.createElement('h2');
+                            inputNameUEberschrift.classList.add('input-ueberschrift');
+                            inputNameUEberschrift.innerHTML = 'Klassenname';
+                            formContainer.appendChild(inputNameUEberschrift);
+
+                            const inputName = document.createElement('input');
+                            inputName.classList.add('input-field');
+                            inputName.type = 'text';
+                            inputName.placeholder = 'Klassenname';
+                            inputName.value = klass.name;
+                            formContainer.appendChild(inputName);
+
+                            const inputPasswordUEberschrift = document.createElement('h2');
+                            inputPasswordUEberschrift.classList.add('input-ueberschrift');
+                            inputPasswordUEberschrift.innerHTML = 'Passwort';
+                            formContainer.appendChild(inputPasswordUEberschrift);
+
+                            const inputPassword = document.createElement('input');
+                            inputPassword.classList.add('input-field');
+                            inputPassword.type = 'password';
+                            inputPassword.placeholder = 'Neues Passwort';
+                            formContainer.appendChild(inputPassword);
+
+                            const inputUntisUsernameUEberschrift = document.createElement('h2');
+                            inputUntisUsernameUEberschrift.classList.add('input-ueberschrift');
+                            inputUntisUsernameUEberschrift.innerHTML = 'Untis Benutzername';
+                            formContainer.appendChild(inputUntisUsernameUEberschrift);
+
+                            const inputUntisUsername = document.createElement('input');
+                            inputUntisUsername.classList.add('input-field');
+                            inputUntisUsername.type = 'text';
+                            inputUntisUsername.placeholder = 'Untis Benutzername';
+                            inputUntisUsername.value = klass.untisUsername;
+                            formContainer.appendChild(inputUntisUsername);
+
+                            const inputUntisKeyUEberschrift = document.createElement('h2');
+                            inputUntisKeyUEberschrift.classList.add('input-ueberschrift');
+                            inputUntisKeyUEberschrift.innerHTML = 'Untis Key';
+                            formContainer.appendChild(inputUntisKeyUEberschrift);
+
+                            const inputUntisKey = document.createElement('input');
+                            inputUntisKey.classList.add('input-field');
+                            inputUntisKey.type = 'text';
+                            inputUntisKey.placeholder = 'Untis Key';
+                            inputUntisKey.value = klass.untisPasswort;
+                            formContainer.appendChild(inputUntisKey);
+
+                            formBackground.appendChild(formContainer);
+                            document.body.appendChild(formBackground);
+
+                            const saveButton = document.createElement('button');
+                            saveButton.classList.add('btn', 'btn-primary', 'save-button');
+                            saveButton.innerHTML = 'Speichern';
+
+                            saveButton.addEventListener('click', function () {
+                                var formData = new FormData();
+                                formData.append('method', 'updateClass');
+                                formData.append('id', klass.id);
+                                formData.append('name', inputName.value);
+                                formData.append('password', inputPassword.value);
+                                formData.append('untisUsername', inputUntisUsername.value);
+                                formData.append('untisKey', inputUntisKey.value);
+
+                                fetch('api', {
+                                    method: 'POST',
+                                    body: formData
+                                }).then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            reloadClasses();
+                                            formBackground.remove();
+                                        } else {
+                                            alert(data.message);
+                                        }
+                                    });
+                            });
+
+                            formContainer.appendChild(saveButton);
+                        });
 
                         var classDeleteButton = document.createElement('button');
                         classDeleteButton.classList.add('btn');
