@@ -24,7 +24,7 @@ include './shared/header.php';
 </div>
 <body class="container" id="index-container">
 <div class="table-of-contents">
-    <ul>
+    <ul id="table-of-contents-ul">
         <li>test1</li>
         <li>a</li>
     </ul>
@@ -114,10 +114,13 @@ include './shared/header.php';
     .table-of-contents {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
-        position: sticky;
-        top: 0;
         padding: 10px;
         border-right: 1px solid #ccc;
+    }
+
+    .table-of-contents ul {
+        position: sticky;
+        top: 0;
     }
 
     .inhalt {
