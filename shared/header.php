@@ -23,6 +23,15 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
     </header>
 </div>
 
+<style>
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: white;
+    }
+</style>
+
 <script>
     document.getElementById('logoutButton').addEventListener('click', function () {
         var formData = new FormData();

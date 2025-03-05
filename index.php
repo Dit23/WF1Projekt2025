@@ -206,7 +206,11 @@ include './shared/header.php';
     }
 
     .table-of-contents ul {
-        color: #007bff;
+        font-weight: normal;
+    }
+
+    table-of-contents ul:hover {
+        font-weight: bold;
     }
 </style>
 <script>
