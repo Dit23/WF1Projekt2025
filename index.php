@@ -25,11 +25,9 @@ include './shared/header.php';
 <body class="container" id="index-container">
 <div class="table-of-contents">
     <ul id="table-of-contents-ul">
-        <li>test1</li>
-        <li>a</li>
     </ul>
 </div>
-<div class="inhalt">
+<div class="inhalt" id="inhalt">
     <div class="card">
         <div class="card-header">
             <h1>Willkommen!</h1>
@@ -211,6 +209,24 @@ include './shared/header.php';
         color: #007bff;
     }
 </style>
+<script>
+    //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
+    var headings = document.querySelectorAll('#inhalt h2, #inhalt h3, #inhalt h4');
+    var tableOfContentsUl = document.getElementById('table-of-contents-ul');
+
+    console.log(headings);
+
+    headings.forEach(function (heading) {
+        var li = document.createElement('li');
+        li.innerText = heading.innerText;
+        li.style.cursor = 'pointer';
+        li.addEventListener('click', function () {
+            heading.scrollIntoView();
+        });
+        tableOfContentsUl.appendChild(li);
+        heading.id = heading.innerText;
+    });
+</script>
 <div class="footer">
 <?php
 include './shared/footer.php';
