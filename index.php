@@ -227,6 +227,8 @@ include './shared/header.php';
         var li = document.createElement('li');
         li.innerText = heading.innerText;
         li.style.cursor = 'pointer';
+
+        li.classList.add(heading.tagName.toLowerCase() + '-li');
         li.addEventListener('click', function () {
             heading.scrollIntoView({ behavior: 'smooth' });
         });
