@@ -230,7 +230,8 @@ include './shared/header.php';
 
         li.classList.add(heading.tagName.toLowerCase() + '-li');
         li.addEventListener('click', function () {
-            heading.scrollIntoView({ behavior: 'smooth' });
+            let posX = heading.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo(0, posX);
         });
         tableOfContentsUl.appendChild(li);
         heading.id = heading.innerText;
@@ -238,7 +239,7 @@ include './shared/header.php';
 
     // Add scroll event listener to update active class
     window.addEventListener('scroll', function () {
-        var fromTop = window.scrollY + 10;
+        var fromTop = window.scrollY + 100;
 
         headings.forEach(function (heading) {
             var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
