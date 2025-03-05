@@ -170,6 +170,45 @@ include './shared/header.php';
         <li>Eine schulpflichtige Schülerin oder ein schulpflichtiger Schüler kann nur in Verbindung mit einem nachgewiesenen Schulwechsel aus der besuchten Schule ausscheiden. § 53 Abs. 5 bleibt unberührt.</li>
     </ol>
 </body>
+<script>
+    //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
+    var headings = document.querySelectorAll('#inhalt h2, #inhalt h3, #inhalt h4');
+    var tableOfContentsUl = document.getElementById('table-of-contents-ul');
+
+    headings.forEach(function (heading) {
+        var li = document.createElement('li');
+        li.innerText = heading.innerText;
+        li.style.cursor = 'pointer';
+
+        li.classList.add(heading.tagName.toLowerCase() + '-li');
+        li.addEventListener('click', function () {
+            let posX = heading.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo(0, posX);
+        });
+        tableOfContentsUl.appendChild(li);
+        heading.id = heading.innerText;
+    });
+
+    // Add scroll event listener to update active class
+    window.addEventListener('scroll', function () {
+        var fromTop = window.scrollY + 110;
+
+        headings.forEach(function (heading) {
+            var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
+
+            var nextHeading = headings[Array.from(headings).indexOf(heading) + 1] || document.body;
+
+            if (
+                heading.offsetTop <= fromTop &&
+                nextHeading.offsetTop > fromTop
+            ) {
+                li.classList.add('li-active');
+            } else {
+                li.classList.remove('li-active');
+            }
+        });
+    });
+</script>
 <style>
     #index-container {
         display: grid;
@@ -196,7 +235,7 @@ include './shared/header.php';
 
     .table-of-contents ul {
         position: sticky;
-        top: 0;
+        top: 110px;
     }
 
     .inhalt {
@@ -207,56 +246,31 @@ include './shared/header.php';
 
     .table-of-contents ul {
         font-weight: normal;
+        list-style-type: none;
+        padding: 0;
     }
 
-    table-of-contents ul:hover {
+
+    .table-of-contents li {
+        color: #2a2b32;
+        transition: color 0.2s linear;
+    }
+    .table-of-contents li:hover {
         font-weight: bold;
+        color: black;
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
     }
 
 
-    .active {
-        color: blue;
+    .li-active {
+        color: #0d6efd !important;
+    }
+
+    .li-active::before {
+        content: '➡️ ';
     }
 </style>
-<script>
-    //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
-    var headings = document.querySelectorAll('#inhalt h2, #inhalt h3, #inhalt h4');
-    var tableOfContentsUl = document.getElementById('table-of-contents-ul');
-
-    headings.forEach(function (heading) {
-        var li = document.createElement('li');
-        li.innerText = heading.innerText;
-        li.style.cursor = 'pointer';
-
-        li.classList.add(heading.tagName.toLowerCase() + '-li');
-        li.addEventListener('click', function () {
-            let posX = heading.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo(0, posX);
-        });
-        tableOfContentsUl.appendChild(li);
-        heading.id = heading.innerText;
-    });
-
-    // Add scroll event listener to update active class
-    window.addEventListener('scroll', function () {
-        var fromTop = window.scrollY + 100;
-
-        headings.forEach(function (heading) {
-            var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
-
-            var nextHeading = headings[Array.from(headings).indexOf(heading) + 1] || document.body;
-
-            if (
-                heading.offsetTop <= fromTop &&
-                nextHeading.offsetTop > fromTop
-            ) {
-                li.classList.add('active');
-            } else {
-                li.classList.remove('active');
-            }
-        });
-    });
-</script>
 <div class="footer">
 <?php
 include './shared/footer.php';
