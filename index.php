@@ -212,6 +212,11 @@ include './shared/header.php';
     table-of-contents ul:hover {
         font-weight: bold;
     }
+
+
+    .active {
+        color: blue;
+    }
 </style>
 <script>
     //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
@@ -235,9 +240,12 @@ include './shared/header.php';
 
         headings.forEach(function (heading) {
             var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
+
+            var nextHeading = headings[Array.from(headings).indexOf(heading) + 1] || document.body;
+
             if (
                 heading.offsetTop <= fromTop &&
-                heading.offsetTop + heading.offsetHeight > fromTop
+                nextHeading.offsetTop > fromTop
             ) {
                 li.classList.add('active');
             } else {
