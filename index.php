@@ -214,17 +214,32 @@ include './shared/header.php';
     var headings = document.querySelectorAll('#inhalt h2, #inhalt h3, #inhalt h4');
     var tableOfContentsUl = document.getElementById('table-of-contents-ul');
 
-    console.log(headings);
-
     headings.forEach(function (heading) {
         var li = document.createElement('li');
         li.innerText = heading.innerText;
         li.style.cursor = 'pointer';
         li.addEventListener('click', function () {
-            heading.scrollIntoView();
+            heading.scrollIntoView({ behavior: 'smooth' });
         });
         tableOfContentsUl.appendChild(li);
         heading.id = heading.innerText;
+    });
+
+    // Add scroll event listener to update active class
+    window.addEventListener('scroll', function () {
+        var fromTop = window.scrollY + 10;
+
+        headings.forEach(function (heading) {
+            var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
+            if (
+                heading.offsetTop <= fromTop &&
+                heading.offsetTop + heading.offsetHeight > fromTop
+            ) {
+                li.classList.add('active');
+            } else {
+                li.classList.remove('active');
+            }
+        });
     });
 </script>
 <div class="footer">
