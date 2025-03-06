@@ -144,20 +144,20 @@ include './shared/header.php';
     </ul>
     <h3>Auszug aus dem Schulgesetz für das Land NRW (SchulG)</h3>
     <h4>§ 31 Religionsunterricht</h4>
-        <ol>
-            <li>6) Eine Schülerin oder ein Schüler ist von der Teilnahme am Religionsunterricht auf Grund der Erklärung der Eltern oder bei Religionsmündigkeit des Schülers auf Grund eigener Erklärung befreit. Die Erklärung ist der Schulleiterin schriftlich zu übermitteln. Die Eltern sind über die Befreiung zu informieren. (Die besonderen Bestimmungen am Berufskolleg Ostvest sind zu beachten)</li>
-        </ol>
+        <ul>
+            <li>(6) Eine Schülerin oder ein Schüler ist von der Teilnahme am Religionsunterricht auf Grund der Erklärung der Eltern oder bei Religionsmündigkeit des Schülers auf Grund eigener Erklärung befreit. Die Erklärung ist der Schulleiterin schriftlich zu übermitteln. Die Eltern sind über die Befreiung zu informieren. (Die besonderen Bestimmungen am Berufskolleg Ostvest sind zu beachten)</li>
+        </ul>
     <h4>§ 43 Teilnahme am Unterricht und an sonstigen Schulveranstaltungen</h4>
-    <ol>
-        <li>Schülerinnen und Schüler sind verpflichtet, regelmäßig am Unterricht und an den sonstigen verbindlichen Schulveranstaltungen teilzunehmen. Die Meldung zur Teilnahme an einer freiwilligen Unterrichtsveranstaltung verpflichtet zur regelmäßigen Teilnahme mindestens für ein Schulhalbjahr.</li>
-        <li>Ist eine Schülerin oder ein Schüler durch Krankheit oder aus anderen nicht vorhersehbaren Gründen verhindert, die Schule zu besuchen, so benachrichtigen die Eltern unverzüglich die Schule und teilen schriftlich den Grund für das Schulversäumnis mit. Bei begründeten Zweifeln, ob Unterricht aus gesundheitlichen Gründen versäumt wird, kann die Schule von den Eltern ein ärztliches Attest verlangen und in besonderen Fällen ein amtsärztliches Gutachten einholen.</li>
-        <li>Für nicht schulpflichtige Schülerinnen gelten die Schutzfristen vor und nach der Geburt eines Kindes gemäß den Regelungen des Mutterschutzgesetzes.</li>
-        <li>Die Schulleiterin oder der Schulleiter kann Schülerinnen und Schüler auf Antrag der Eltern aus wichtigem Grund bis zur Dauer eines Schuljahres vom Unterricht beurlauben oder von der Teilnahme an einzelnen Unterrichts- oder Schulveranstaltungen befreien. Längerfristige Beurlaubungen und Befreiungen bedürfen der Zustimmung der Schulaufsichtsbehörde. Dauerhafte Beurlaubungen und Befreiungen von schulpflichtigen Schülerinnen und Schülern zur Förderung wissenschaftlicher, sportlicher oder künstlerischer Hochbegabungen setzen voraus, dass für andere geeignete Bildungsmaßnahmen gesorgt wird.</li>
-        <li>Alle Schülerinnen und Schüler sind während schulischer Veranstaltungen sowie auf den Wegen von und zu diesen im Rahmen der gesetzlichen Unfallversicherung nach dem SGB VII gegen Unfall versichert.</li>
-    </ol>
+    <ul>
+        <li>(1) Schülerinnen und Schüler sind verpflichtet, regelmäßig am Unterricht und an den sonstigen verbindlichen Schulveranstaltungen teilzunehmen. Die Meldung zur Teilnahme an einer freiwilligen Unterrichtsveranstaltung verpflichtet zur regelmäßigen Teilnahme mindestens für ein Schulhalbjahr.</li>
+        <li>(2) Ist eine Schülerin oder ein Schüler durch Krankheit oder aus anderen nicht vorhersehbaren Gründen verhindert, die Schule zu besuchen, so benachrichtigen die Eltern unverzüglich die Schule und teilen schriftlich den Grund für das Schulversäumnis mit. Bei begründeten Zweifeln, ob Unterricht aus gesundheitlichen Gründen versäumt wird, kann die Schule von den Eltern ein ärztliches Attest verlangen und in besonderen Fällen ein amtsärztliches Gutachten einholen.</li>
+        <li>(3) Für nicht schulpflichtige Schülerinnen gelten die Schutzfristen vor und nach der Geburt eines Kindes gemäß den Regelungen des Mutterschutzgesetzes.</li>
+        <li>(4) Die Schulleiterin oder der Schulleiter kann Schülerinnen und Schüler auf Antrag der Eltern aus wichtigem Grund bis zur Dauer eines Schuljahres vom Unterricht beurlauben oder von der Teilnahme an einzelnen Unterrichts- oder Schulveranstaltungen befreien. Längerfristige Beurlaubungen und Befreiungen bedürfen der Zustimmung der Schulaufsichtsbehörde. Dauerhafte Beurlaubungen und Befreiungen von schulpflichtigen Schülerinnen und Schülern zur Förderung wissenschaftlicher, sportlicher oder künstlerischer Hochbegabungen setzen voraus, dass für andere geeignete Bildungsmaßnahmen gesorgt wird.</li>
+        <li>(5) Alle Schülerinnen und Schüler sind während schulischer Veranstaltungen sowie auf den Wegen von und zu diesen im Rahmen der gesetzlichen Unfallversicherung nach dem SGB VII gegen Unfall versichert.</li>
+    </ul>
     <h4>§ 47 Beendigung des Schulverhältnisses</h4>
-    <ol>
-        <li>Schulverhältnis endet, wenn</li>
+    <ul>
+        <li>(1) Schulverhältnis endet, wenn
             <ol>
                 <li>die Schülerin oder der Schüler den Bildungsgang durchlaufen oder die Schulpflicht erfüllt hat und ein Abschluss- oder Abgangszeugnis erteilt wird,</li>
                 <li>Eltern die Schülerin oder den Schüler schriftlich abmelden,</li>
@@ -169,8 +169,28 @@ include './shared/header.php';
                 <li>die nicht mehr schulpflichtige Schülerin oder der nicht mehr schulpflichtige Schüler trotz schriftlicher Erinnerung ununterbrochen 20 Unterrichtstage unentschuldigt fehlt,</li>
                 <li>die Schülerin oder der Schüler auf Grund einer Ordnungsmaßnahme entlassen oder verwiesen wird.</li>
             </ol>
-        <li>Eine schulpflichtige Schülerin oder ein schulpflichtiger Schüler kann nur in Verbindung mit einem nachgewiesenen Schulwechsel aus der besuchten Schule ausscheiden. § 53 Abs. 5 bleibt unberührt.</li>
-    </ol>
+        </li>
+        <li>(2) Eine schulpflichtige Schülerin oder ein schulpflichtiger Schüler kann nur in Verbindung mit einem nachgewiesenen Schulwechsel aus der besuchten Schule ausscheiden. § 53 Abs. 5 bleibt unberührt.</li>
+    </ul>
+    <h4>§ 53 Erzieherische Einwirkungen, Ordnungsmaßnahmen</h4>
+    <ul>
+        <li>(1) Erzieherische Einwirkungen und Ordnungsmaßnahmen dienen der geordneten Unterrichts- und Erziehungsarbeit der Schule sowie dem Schutz von Personen und Sachen. Sie können angewendet werden, wenn eine Schülerin oder ein Schüler Pflichten verletzt. Der Grundsatz der Verhältnismäßigkeit ist zu beachten. Ordnungsmaßnahmen sind nur zulässig, wenn erzieherische Einwirkungen nicht ausreichen. Einwirkungen gegen mehrere Schülerinnen und Schüler sind nur zulässig, wenn das Fehlverhalten jeder oder jedem Einzelnen zuzurechnen ist.</li>
+        <li>Ordnungsmaßnahmen sind
+            <ol>
+                <li>der schriftliche Verweis,</li>
+                <li>die Überweisung in eine parallele Klasse oder Lerngruppe,</li>
+                <li>der vorübergehende Ausschluss vom Unterricht von einem Tag bis zu zwei Wochen und von sonstigen Schulveranstaltungen,</li>
+                <li>die Androhung der Entlassung von der Schule,</li>
+                <li>die Entlassung von der Schule,</li>
+                <li>die Androhung der Verweisung von allen öffentlichen Schulen des Landes durch die obere Schulaufsichtsbehörde,</li>
+                <li>die Verweisung von allen öffentlichen Schulen des Landes durch die obere Schulaufsichtsbehörde.</li>
+            </ol>
+            Rechtsbehelfe (Widerspruch und Anfechtungsklage) gegen Ordnungsmaßnahmen nach Satz 1 Nr. 2 und 3 haben keine aufschiebende Wirkung. § 80 Abs. 4, 5, 7 und 8 der Verwaltungsgerichtsordnung bleibt unberührt.
+        </li>
+        <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.</ul>
+        <li>(5) Maßnahmen nach Absatz 3 Nr. 6 und 7 sind nur zulässig, wenn die Anwesenheit der Schülerin oder des Schülers aus Gründen der Sicherheit nicht verantwortet werden kann. Diese Entscheidung bedarf der Bestätigung durch das Ministerium. Soweit die Schülerin oder der Schüler die Schulpflicht noch nicht erfüllt hat, ist für geeignete Bildungsmaßnahmen zu sorgen.</li>
+        <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
+    </ul>
 </body>
 <style>
     #index-container {
