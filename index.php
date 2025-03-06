@@ -24,12 +24,10 @@ include './shared/header.php';
 </div>
 <body class="container" id="index-container">
 <div class="table-of-contents">
-    <ul>
-        <li>test1</li>
-        <li>a</li>
+    <ul id="table-of-contents-ul">
     </ul>
 </div>
-<div class="inhalt">
+<div class="inhalt" id="inhalt">
     <div class="card">
         <div class="card-header">
             <h1>Willkommen!</h1>
@@ -192,6 +190,45 @@ include './shared/header.php';
         <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
     </ul>
 </body>
+<script>
+    //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
+    var headings = document.querySelectorAll('#inhalt h2, #inhalt h3, #inhalt h4');
+    var tableOfContentsUl = document.getElementById('table-of-contents-ul');
+
+    headings.forEach(function (heading) {
+        var li = document.createElement('li');
+        li.innerText = heading.innerText;
+        li.style.cursor = 'pointer';
+
+        li.classList.add(heading.tagName.toLowerCase() + '-li');
+        li.addEventListener('click', function () {
+            let posX = heading.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo(0, posX);
+        });
+        tableOfContentsUl.appendChild(li);
+        heading.id = heading.innerText;
+    });
+
+    // Add scroll event listener to update active class
+    window.addEventListener('scroll', function () {
+        var fromTop = window.scrollY + 110;
+
+        headings.forEach(function (heading) {
+            var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
+
+            var nextHeading = headings[Array.from(headings).indexOf(heading) + 1] || document.body;
+
+            if (
+                heading.offsetTop <= fromTop &&
+                nextHeading.offsetTop > fromTop
+            ) {
+                li.classList.add('li-active');
+            } else {
+                li.classList.remove('li-active');
+            }
+        });
+    });
+</script>
 <style>
     #index-container {
         display: grid;
@@ -212,10 +249,13 @@ include './shared/header.php';
     .table-of-contents {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
-        position: sticky;
-        top: 0;
         padding: 10px;
         border-right: 1px solid #ccc;
+    }
+
+    .table-of-contents ul {
+        position: sticky;
+        top: 110px;
     }
 
     .inhalt {
@@ -225,7 +265,30 @@ include './shared/header.php';
     }
 
     .table-of-contents ul {
-        color: #007bff;
+        font-weight: normal;
+        list-style-type: none;
+        padding: 0;
+    }
+
+
+    .table-of-contents li {
+        color: #2a2b32;
+        transition: color 0.2s linear;
+    }
+    .table-of-contents li:hover {
+        font-weight: bold;
+        color: black;
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+    }
+
+
+    .li-active {
+        color: #0d6efd !important;
+    }
+
+    .li-active::before {
+        content: '➡️ ';
     }
 </style>
 <div class="footer">
