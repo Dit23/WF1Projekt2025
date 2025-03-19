@@ -188,7 +188,7 @@ include './shared/header.php';
         <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.</ul>
         <li>(5) Maßnahmen nach Absatz 3 Nr. 6 und 7 sind nur zulässig, wenn die Anwesenheit der Schülerin oder des Schülers aus Gründen der Sicherheit nicht verantwortet werden kann. Diese Entscheidung bedarf der Bestätigung durch das Ministerium. Soweit die Schülerin oder der Schüler die Schulpflicht noch nicht erfüllt hat, ist für geeignete Bildungsmaßnahmen zu sorgen.</li>
         <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
-    </ul>
+    </div>
     <h3>5.3 Nutzungsordnung Schulnetz / Rechnerräume</h3>
     <h4>Allgemeines</h4>
         <p>Am Berufskolleg Ostvest gilt die folgende Nutzungsordnung für den Umgang mit Rechnern und die Nutzung des Schulnetzes.</p>
