@@ -1,4 +1,5 @@
 <?php
+include 'global.php';
 
 class UntisAPI {
     private $username;
@@ -256,34 +257,21 @@ class UntisAPI {
     }
 }
 
-// Usage
-/* header('Content-Type: application/json');
+header('Content-Type: application/json');
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
-    $username = 'username';
-    $secret = 'secret';
-    $school = 'school';
+    $username = getKlasse()['untisUsername'];
+    $secret = getKlasse()['untisPasswort'];
+    $school = "BK-Ostvest";
 
-    if (!isset($_POST['username']) || !isset($_POST['secret']) || !isset($_POST['school'])) {
-        echo json_encode(['error' => 'Missing username, secret or school parameter in POST request']);
-        exit;
-    }else{
-        $username = $_POST['username'];
-        $secret = $_POST['secret'];
-        $school = $_POST['school'];
-    }
-
-    $startTime = (isset($_POST['startTime'])) ? str_replace('-', '', $_POST['startTime']) : date('Ymd');
-    $endTime = (isset($_POST['endTime'])) ? str_replace('-', '', $_POST['endTime']) : date('Ymd');
+    $startTime = $_POST['startDate'];
+    $endTime = $_POST['endDate'];
 
     $untisAPI = new UntisAPI($username, $secret, $school);
 
     switch ($action) {
-        case 'fetchMasterData':
-            echo $untisAPI->fetchMasterData($startTime, $endTime);
-            break;
         case 'fetchTimetable':
             echo $untisAPI->fetchTimetable($startTime, $endTime);
             break;
@@ -300,4 +288,3 @@ if (isset($_GET['action'])) {
 } else {
     echo json_encode(['error' => 'Missing action']);
 }
-*/
