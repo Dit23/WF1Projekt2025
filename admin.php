@@ -20,51 +20,7 @@ if ($_SESSION['admin'] === false) {
     <?php
     include './shared/head.php';
     ?>
-
-    <style>
-        .form-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .form-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 1em;
-            border-radius: 5px;
-            width: clamp(300px, 50%, 500px);
-        }
-
-        .form-title {
-            text-align: center;
-        }
-
-        .input-ueberschrift {
-            font-size: 1.2em;
-        }
-
-        .input-field {
-            width: 100%;
-            margin-bottom: 1em;
-            background-color: #f1f1f1;
-            border: none;
-            padding: 0.5em;
-            border-radius: 5px;
-        }
-
-        .save-button {
-            width: 100%;
-            margin-top: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <?php
 include './shared/header.php';
