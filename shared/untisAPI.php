@@ -50,7 +50,7 @@ class UntisAPI {
         return str_pad($code % 1000000, 6, '0', STR_PAD_LEFT);
     }
 
-    public function fetchMasterData($startTime = null, $endTime = null) {
+    private function fetchMasterData($startTime = null, $endTime = null) {
         $otp = $this->generateTOTP($this->secret);
         $params = [
             'method' => 'getUserData2017',
@@ -77,6 +77,7 @@ class UntisAPI {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification
 
         $response = curl_exec($ch);
 
@@ -119,6 +120,7 @@ class UntisAPI {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification
 
         $response = curl_exec($ch);
 
@@ -227,7 +229,11 @@ class UntisAPI {
             if (isset($period['homeWorks'])) {
                 foreach ($period['homeWorks'] as $homework) {
                     if ($homework['endDate'] === substr($period['endDateTime'], 0, 10)) {
-                        $homeworks = array_merge($homeworks, $period['homeWorks']);
+                        $homework['classes'] = $period['elements']['classes'];
+                        $homework['teachers'] = $period['elements']['teachers'];
+                        $homework['subjects'] = $period['elements']['subjects'];
+                        $homework['rooms'] = $period['elements']['rooms'];
+                        $homeworks[] = $homework;
                     }
                 }
             }
