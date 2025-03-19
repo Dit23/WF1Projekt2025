@@ -211,6 +211,23 @@ global $pdo;
                 transform: translateX(100%);
             }
         }
+
+        .add-event-button {
+            text-align: center;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5em;
+            padding: 0.5em;
+            width: 3em;
+            margin: auto;
+            display: none;
+        }
+
+        .grid-cell:hover .add-event-button {
+            display: block !important;
+        }
     </style>
 </head>
 <body class="container">
@@ -409,12 +426,28 @@ global $pdo;
         cell.appendChild(cellHeader);
         var content = document.createElement('div');
         content.classList.add('cal-content');
-
-        //date
         content.setAttribute('data-date', dateObj.getFullYear() + '-' + (dateObj.getMonth() + 1).toString().padStart(2, '0') + '-' + dateObj.getDate().toString().padStart(2, '0'));
+
+        //add button
+        const addButton = document.createElement("i");
+        addButton.classList.add('fa-solid', 'fa-plus', 'add-event-button');
+        addButton.addEventListener('click', function(){
+            createNewEvent(dateObj.getFullYear() + '-' + (dateObj.getMonth() + 1).toString().padStart(2, '0') + '-' + dateObj.getDate().toString().padStart(2, '0'));
+        });
+        content.appendChild(addButton);
 
         cell.appendChild(content);
         container.appendChild(cell);
+    }
+
+    function createNewEvent(date){
+        const dateCell = document.querySelector('[data-date="' + date + '"]');
+        const event = document.createElement('div');
+        event.classList.add('event');
+        event.style.backgroundColor = '#007bff';
+        event.style.color = 'white';
+        event.innerHTML = `<strong>Neues Event</strong>`;
+        dateCell.insertBefore(event, dateCell.lastElementChild);
     }
 
     function addHomeworkToCell(date, homeworkObject) {
@@ -434,7 +467,7 @@ global $pdo;
             event.addEventListener('click', function() {
                 open(homeworkObject);
             });
-            cell.appendChild(event);
+            cell.insertBefore(event, cell.lastElementChild);
         }
     }
 
@@ -548,7 +581,6 @@ global $pdo;
             label.innerText = formatDate(currentDate);
         }
     }
-
 
 
 
