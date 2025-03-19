@@ -27,7 +27,7 @@ include './shared/header.php';
     <ul id="table-of-contents-ul">
     </ul>
 </div>
-<div class="inhalt" id="inhalt">
+<ul class="inhalt" id="inhalt">
     <div class="card">
         <div class="card-header">
             <h1>Willkommen!</h1>
@@ -378,6 +378,10 @@ include './shared/header.php';
 
     .li-active::before {
         content: '➡️ ';
+    }
+
+    .table-of-contents .h2-li {
+        scale: 110%
     }
 </style>
 <div class="footer">
