@@ -189,6 +189,95 @@ include './shared/header.php';
         <li>(5) Maßnahmen nach Absatz 3 Nr. 6 und 7 sind nur zulässig, wenn die Anwesenheit der Schülerin oder des Schülers aus Gründen der Sicherheit nicht verantwortet werden kann. Diese Entscheidung bedarf der Bestätigung durch das Ministerium. Soweit die Schülerin oder der Schüler die Schulpflicht noch nicht erfüllt hat, ist für geeignete Bildungsmaßnahmen zu sorgen.</li>
         <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
     </ul>
+    <h3>5.3 Nutzungsordnung Schulnetz / Rechnerräume</h3>
+    <h4>Allgemeines</h4>
+        <p>Am Berufskolleg Ostvest gilt die folgende Nutzungsordnung für den Umgang mit Rechnern und die Nutzung des Schulnetzes.</p>
+    <h4>Passwörter</h4>
+        <p>Die Nutzung der schuleigenen Rechner oder ein Zugang zum Netz über private Geräte ist nur nach Anmeldung über eine individuelle Nutzerkennung möglich. Dazu wird jede*r Schüler*in eine Nutzerkennung zugewiesen, der dann ein selbstgewähltes Passwort zugeordnet wird. Private Geräte erhalten einen Zugang nur über das schuleigene Funknetz (WLAN) und müssen im Schulnetz identifiziert werden können. Das Maskieren von MAC-Adressen ist ausdrücklich untersagt. Ein Anspruch auf einen Zugang für private Geräte besteht nur für Laptopklassen und ist dann auf je einen Laptop beschränkt. Nach Beendigung der Nutzung hat sich der*die Schüler*in am PC abzumelden. Schüler*innen sind für Handlungen unter ihrer Nutzerkennung verantwortlich. Deshalb muss das Passwort vertraulich gehalten werden. Das Arbeiten unter einem fremden Passwort ist verboten. Wer ein fremdes Passwort erfährt, ist verpflichtet, diesen Umstand der Schule mitzuteilen.</p>
+    <h4>Verbotene Nutzungen</h4>
+        <p>Die gesetzlichen Bestimmungen insbesondere des Strafrechts, Urheberrechts und des Jugendschutzrechts sind zu beachten. Es ist verboten, pornographische, gewaltverherrlichende, rassistische oder persönlichkeitsverletzende Inhalte aufzurufen oder zu versenden. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der Aufsichtsperson Mitteilung zu machen.</p>
+    <h4>Datenschutz und Datensicherheit</h4>
+        <p>Schüler*innen erhalten begrenzt die Möglichkeit, im Schulnetz Dateien langfristig zu speichern. Die Dateien müssen so hinterlegt werden, dass die Schule Zugriff auf den Inhalt der Dateien hat. Auf eine Sicherung der Dateien von Seiten der Schule besteht kein Anspruch. Die Schule ist in Wahrnehmung ihrer Aufsichtspflicht berechtigt, Informationen über den Datenverkehr zu speichern und zu kontrollieren. Entsprechede Daten werden in der Regel nach einem Monat, spätestens zu Beginn eines jeden neuen Schuljahres gelöscht. Dies gilt nicht, wenn der Verdacht eines schwerwiegenden Missbrauches der schulischen Computer vorliegt.</p>
+    <h4>Eingriffe in die Hard- und Softwareinstallation</h4>
+        <p>Veränderungen der Installation und Konfiguration der Basisbetriebssysteme sowie Manipulationen an der Hardwareausstattung sind grundsätzlich untersagt. Fremdgeräte dürfen nicht an das drahtgebundene Netzwerk und nur mit Erlaubnis an schuleigene Computer angeschlossen werden. Unnötiges Datenaufkommen durch Laden und Versenden von großen Dateien (z. B. Filme oder Softwarepakete) aus dem Internet ist grundsätzlich zu vermeiden und nur mit Erlaubnis der zuständigen Lehrkraft zulässig.</p>
+    <h4>Schutz der Geräte</h4>
+        <p>Unautorisierte Veränderungen an Hard- und Software sind ausdrücklich untersagt. Störungen oder Schäden sind sofort der für die Computernutzung verantwortlichen Person zu melden. Wer schuldhaft Schäden verursacht, haftet für etwaige Reparaturen und Ersatzgeräte. Die Tastaturen sind durch Schmutz und Flüssigkeiten besonders gefährdet. Deshalb ist während der Nutzung der Schulcomputer Essen und Trinken verboten.</p>
+    <h4>Nutzung von Informationen aus dem Internet</h4>
+        <p>Der Internetzugang darf nur für schulische Zwecke genutzt werden. Als schulisch ist auch ein elektronischer Informationsaustausch anzusehen, der unter Berücksichtigung seines Inhalts und des Adressatenkreises mit der schulischen Arbeit im Zusammenhang steht. Das Herunterladen von Anwendungen ist nur mit Einwilligung der Schule zulässig. Die Schule ist nicht für den Inhalt der über ihren Zugang abrufbaren Angebote Dritter im Internet verantwortlich. Im Namen der Schule dürfen weder Vertragsverhältnisse eingegangen noch ohne Erlaubnis kostenpflichtige Dienste im Internet benutzt werden. Bei der Weiterverarbeitung von Daten aus dem Internet sind insbesondere Urheber- und Nutzungsrechte zu beachten.</p>
+    <h4>Persönliche Daten der Schüler*innen, Schüler*innenausweis</h4>
+    <ul>
+        <li>Alle Schüler*innen sind verpflichtet, einen durch die Schule erstellten Schüler*innenausweis auf dem Schulgelände mit sich zu führen.</li>
+        <li>Veränderungen der persönlichen Daten (z. B. Namens- oder Adressänderungen, Wechsel des Ausbildungsbetriebes) sind unverzüglich der Klassenleitung mitzuteilen, die die Daten an das Sekretariat weiterleitet.</li>
+        <li>Die Verarbeitung von personenbezogenen Daten durch das Berufskolleg Ost vest erfolgt auf der Grundlage der gesetzlichen Bestimmungen. Informationen zum Datenschutz erhalten Sie auf der Internetseite des Berufskollegs Ostvests.</li>
+        <li>Alle Schüler*innen erhalten einen Zugang zur Arbeits- und Kommunikationsplattform IServ und damit eine eigene E-Mail-Adresse. Die Nutzung ist verpflichtend. (§ 8 Abs. 2 und § 120 Abs. 5 SchulG)</li>
+    </ul>
+    <h4>Versenden von Informationen in das Internet</h4>
+        <p>Werden Informationen unter dem Absendernamen der Schule in das Internet versandt, geschieht das unter Beachtung der allgemein anerkannten Umgangsformen. Die Veröffentlichung von Internetseiten der Schulebedarf der Genehmigung durch die Schulleitung. Für fremde Inhalte ist insbesondere das Urheberrecht zu beachten. So dürfen zum Beispiel digitalisierte Texte, Bilder und andere Materialien nur mit Erlaubnis der Urheber in eigenen Internetseiten verwandt werden. Der Urheber ist zu nennen, wenn dieser es wünscht. Das Recht am eigenen Bild ist zu beachten. Die Veröffentlichung von Fotos und Schülermaterialien im Internet ist nur mit der Genehmigung der Schüler*innen bzw. ihrer Erziehungsberechtigten gestattet.</p>
+    <h4>Schlussvorschriften</h4>
+        <p>Diese Benutzerordnung ist Bestandteil der jeweils gültigen Hausordnung. Eine Nutzung der IT-Infrastruktur der Schule ist erst nach Kenntnisnahme und schriftlich dokumentierter Anerkennung dieser Nutzungsordnung möglich. Jeweils zu Schuljahresbeginn findet eine Nutzerbelehrung statt, die im Klassenbuch protokolliert wird. Nutzer, die unbefugt Software von den Arbeitsstationen oder aus dem Netz kopieren oder verbotene Inhalte nutzen, machen sich strafbar und können zivil- oder strafrechtlich verfolgt werden. Zuwiderhandlungen gegen diese Nutzungsordnung können neben dem Entzug der Nutzungsberechtigung schulordnungsrechtliche Maßnahmen zur Folge haben.</p>
+    <h3>5.4 Nutzungsordnung zu digitalen Lernplattformen</h3>
+    <h4>Präambel</h4>
+        <p>Die Schule stellt ihren Schüler*innen und Lehrkräften (im Folgenden: Nutzer) als Kommunikations- und Austauschplattform IServ und Moodle zur Verfügung. Diese dient ausschließlich der schulischen Kommunikation und ermöglicht allen Nutzern, schulbezogene Daten zu speichern und auszutauschen. Alle Nutzer verpflichten sich, die Rechte anderer Personen zu achten.</p>
+    <h4>Nutzungsmöglichkeiten</h4>
+        <p>Die Schule entscheidet darüber, welche Module von IServ und Moodle für den innerschulischen Gebrauch freigeschaltet werden und welcher Nutzerkreis zu diesen Zugang erhält.</p>
+    <h4>Allgemeine Verhaltensregeln</h4>
+        <p>Jeder Nutzer erhält ein Nutzerkonto. Das Nutzerkonto muss durch ein nicht zu erratendes Passwort von mindestens acht Zeichen Länge (Groß-/Kleinbuchstaben, Zahlen und Sonderzeichen) gesichert werden. Es ist untersagt, das Passwort anderen Nutzern mitzuteilen. Erfährt ein Nutzer, dass ein Dritter unberechtigt Kenntnis von seinem Passwort hat, so muss er sein Passwort unverzüglich ändern. Sollte ein Nutzer sein Passwort vergessen haben, ist er verpflichtet, das durch einen Administrator neu vergebene Passwort beim nächsten Einloggen sofort zu ändern. Nur der Nutzer selbst darf ein neues Passwort für sich persönlich bei einem Administrator beantragen. Alle Nutzer sind verpflichtet, eingesetzte Filter und Sperren zu respektieren und diese nicht zu umgehen. Die Sicherung eigener in Iserv und Moodle gespeicherter Dateien gegen Verlust obliegt der Verantwortung der Nutzer, da eine Rücksicherung mit unverhältnismäßigem Aufwand verbunden wäre. Das Senden, Aufrufen und Speichern jugendgefährdender und anderer strafrechtlich relevanter Inhalte ist auf dem Schulserver ebenso verboten wie die Speicherung von URLs (Webseiten) oder Links auf jugendgefährdende Websites oder Websites mit strafrechtlich relevanten Inhalten. Die Schule übernimmt keine Verantwortung für die Inhalte und die Art gespeicherter Daten. Weil umfangreiche Up- und Downloads die Arbeitsgeschwindigkeit des Servers beeinträchtigen, sind diese nicht erlaubt. Die Installation oder Nutzung fremder Software darf und kann nur von den Administratoren durchgeführt werden. Ausnahmen sind vorab mit den Administratoren abzusprechen.</p>
+    <h4>Administratoren</h4>
+        <p>Die Administratoren haben weitergehende Rechte, verwenden diese aber grundsätzlich nicht dazu, sich Zugang zu persönlichen Konten bzw. persönlichen Daten zu verschaffen.</p>
+    <h4>Protokolle</h4>
+        <p>Das System erstellt Log-Dateien (Protokolle), die in schwerwiegenden Fällen (z. B. bei Regelverstößen, Betrugs- und Täuschungsversuchen oder Rechtsverstößen) ausgewertet werden können.</p>
+    <h4>Hausaufgaben</h4>
+        <p>Hausaufgaben können über IServ und Moodle gestellt werden, werden aber im Unterricht angekündigt. Die Lehrkräfte achten dabei auf einen angemessenen Bearbeitungszeitraum. Ist kein normaler Unterricht möglich, erfolgt die Kommunikation ausschließlich über die Lernplattformen.</p>
+    <h4>Adressbuch</h4>
+        <p>Die im gemeinsamen Adressbuch eingegebenen Daten sind für alle Nutzer sichtbar. Es wird deshalb geraten, so wenig personenbezogene Daten wie möglich von sich preiszugeben.</p>
+    <h4>E-Mail</h4>
+        <p>Soweit die Schule den Nutzern einen persönlichen E-Mail-Account zur Verfügung stellt, darf dieser nur für die schulische Kommunikation (interner Gebrauch) verwendet werden. Die Schule ist damit kein Anbieter von Telekommunikation im Sinne von § 3 Nr. 6 Telekommunikationsgesetz. Ein Rechtsanspruch der Nutzer auf den Schutz der Kommunikationsdaten im Netz besteht gegenüber der Schule somit grundsätzlich nicht. Die Schule ist berechtigt, im Falle von konkreten Verdachtsmomenten von missbräuchlicher oder strafrechtlich relevanter Nutzung des E-Mail-Dienstes die Inhalte von E-Mails zur Kenntnis zu nehmen. Die betroffenen Nutzer werden hierüber unverzüglich informiert. Der massenhafte Versand von E-Mails, sowie E-Mails, die dazu gedacht sind, andere Nutzer über Absender oder Glaubhaftigkeit der übermittelten Nachricht zu täuschen, ist verboten.</p>
+    <h4>Forum</h4>
+        <p>Soweit die Schule eine Forum-Funktion zur Verfügung stellt, gelten dieselben Vorgaben wie bei der E-Mail-Nutzung. Neben schul-öffentlichen Foren stehen auch Foren mit eingeschränkten Nutzerkreis zur Verfügung, wie z. B. Gruppenforen. Darüber hinaus sind die Moderatoren der Foren berechtigt, unangemessene Beiträge zu löschen oder zu bearbeiten. Moderatoren dürfen nur in dem ihnen anvertrauten Foren moderieren.</p>
+    <h4>Kalender</h4>
+        <p>Kalendereinträge für Gruppen werden nach bestem Wissen eingetragen und nicht manipuliert.</p>
+    <h4>Messenger</h4>
+        <p>Soweit die Schule die Messenger-Funktion zur Verfügung stellt, gelten dieselben Vorgaben wie bei der E-Mail-Nutzung.</p>
+    <h4>Videokonferenzen</h4>
+        <p>Eine Aufzeichnung von Videokonferenzen ist nicht gestattet.</p>
+    <h4>Verstöße</h4>
+        <p>Im Fall von Verstößen gegen die Nutzungsordnung kann das Konto temporär oder permanent gesperrt werden. Damit ist die Nutzung schulischer Computer sowie die Nutzung von IServ und Moodle auf schulischen und privaten Geräten nicht mehr möglich.Unabhängig davon besteht die Möglichkeit, Nutzern den Zugang zu einzelnen Komponenten oder Modulen zu verweigern, sodass beispielsweise das Anmelden am Schul-WLAN nicht mehr möglich ist, aber auf Schul-Computern und Zuhause IServ und Moodle weiterhin genutzt werden kann. Die Ahndung von Verstößen liegt im Ermessen der Administratoren.</p>
+    <h3>5.5 Ergänzung zur Datenschutzerklärung nach Art. 12 DS-GVO</h3>
+        <p>Auf dieser Seite informieren wir Sie über die zur Nutzung von BigBlueButton erforderliche Verarbeitung von personenbezogenen Daten.</p>
+    <h4>Wer ist verantwortlich für die Verarbeitung meiner Daten, bzw. der Daten meines Kindes (im Folgenden: die Daten)?</h4>
+        <p>Verantwortlich ist die Schule: Juliane Brüggemann (Schulleiterin)</p>
+    <h4>An wen kann ich mich wenden, wenn ich Fragen zum Datenschutz habe?</h4>
+        <p>Fragen zum Datenschutz können Sie an den schulischen Ansprechpartner für Datenschutz stellen: Dirk Schlechter</p>
+    <h4>Zu welchem Zweck sollen die Daten verarbeitet werden?</h4>
+        <p>Die Verarbeitung ist erforderlich zur Nutzung von BigBlueButton, einer Videokonferenz-Plattform, zur Durchführung von Online-Unterrichtseinheiten in der Lerngruppe und individueller Betreuung und Beratung in Kleingruppen oder Einzeltreffen zwischen Schüler*in und Lehrkraft.</p>
+    <h4>Auf welcher Rechtsgrundlage erfolgt die Verarbeitung?</h4>
+        <p>Die Verarbeitung erfolgt auf der Grundlage Ihrer Einwilligung.</p>
+    <h4>Welche personenbezogenen Daten werden bei Teilnahme an einer Videokonferenz verarbeitet?</h4>
+        <p>Bei der Teilnahme an einer Videokonferenz ohne eigenes Nutzerkonto werden neben Bild- und Tondaten, zusätzliche Daten zur Konferenz verarbeitet:Name des Raumes, IP Nummer des Teilnehmers und Informationen zum genutzten Endgerät. Je nach Nutzung der Funktionen in einer Videokonferenz fallen Inhalte von Chats, gesetzter Status, Eingaben bei Umfragen, Beiträge zum geteilten Whiteboard, durch Upload geteilte Dateien und Inhalte von Bildschirmfreigaben an. Eine Speicherung von Videokonferenzen und Inhalten durch die Schule erfolgt nicht.</p>
+    <h4>Wer hat Zugriff auf die personenbezogenen Daten?</h4>
+        <p>Alle Teilnehmer einer Videokonferenz haben Zugriff im Sinne von Sehen, Hören und Lesen auf Inhalte der Videokonferenz, Chats, geteilte Dateien, Bildschirmfreigaben und Beiträge auf Whiteboards. Der Anbieter hat Zugriff auf die verarbeiteten Daten im Rahmen der Auftragsverarbeitung und auf Weisung der Schulleitung.</p>
+    <h4>An wen werden die Daten übermittelt?</h4>
+        <p>Unsere BigBlueButton Instanz wird von IServ (IServ.eu) für uns betrieben. IServ verarbeitet die personenbezogenen Daten ausschließlich in unserem Auftrag. Demnach darf er sie nur entsprechend unserer Weisungen und für unsere Zwecke und nicht für eigene Zwecke nutzen, also weder für Werbung und auch nicht, um sie an Dritte weitergeben. Im Sinne des Datenschutzrechts findet somit keine Übermittlung statt.</p>
+    <h4>Wie lange werden die Daten gespeichert?</h4>
+        <p>Die Schule speichert keine personenbezogenen Daten im Zusammenhang mit der Nutzung von BigBlueButton. Videokonferenzen und Chats werden nicht aufgezeichnet und weder durch Schule noch den Anbieter gespeichert. Die Inhalte von Chats, geteilte Dateien und Whiteboards werden in der Plattform gelöscht, sobald ein Konferenzraum geschlossen wird.</p>
+    <h3>5.6 Do‘s and Don‘ts in Notfällen am Berufskolleg Ostvest</h3>
+    <h4>Do's</h4>
+    <ul>
+        <li>Hilfe holen!</li>
+        <li>Melden Sie sich bei der Aufsicht oder im Sekretariat.</li>
+        <li>Beruhigen!</li>
+        <li>Beruhigen Sie die verletzte/ erkrankte Person.</li>
+        <li>Selbst ruhig bleiben!</li>
+        <li>Stabile Seitenlage! … wenn die Person bewusstlos ist.</li>
+    </ul>
+    <h4>Don'ts</h4>
+    <ul>
+        <li>Den Krankenwagen rufen! Das übernimmt das Sekretariat.</li>
+        <li>Medikamente verabreichen!</li>
+        <li>Den Rettungskräften im Weg stehen!</li>
+    </ul>
+    <h3>5.7 Nutzung des Sportangebotes auf dem Schulgelände</h3>
+        <p>Allen Schüler*innen stehen in den Pausen oder in Freistunden Sportgeräte (Bälle, Boule-Kugeln etc.) zur Verfügung. Wie diese ausgeliehen werden können, wird über Aushänge bzw. über den Schüler*innen- Newsletter (über IServ) bekannt gegeben.</p>
 </body>
 <script>
     //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
