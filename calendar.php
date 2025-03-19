@@ -6,12 +6,10 @@ global $pdo;
 $untisAPI = new UntisAPI(getKlasse()['untisUsername'], getKlasse()['untisPasswort'], "BK-Ostvest");
 
 //today date
-$today = date('Ymd');
+$today = date('Ymd', strtotime('-30 days'));
 
 //date in 7 days
-$nextWeek = date('Ymd', strtotime('+7 days'));
-
-echo $untisAPI->fetchMasterData($today, $nextWeek);
+$nextWeek = date('Ymd', strtotime('+30 days'));
 
 ?>
 
@@ -180,6 +178,9 @@ echo $untisAPI->fetchMasterData($today, $nextWeek);
     var weekdays = ['MO', 'DI', 'MI', 'DO', 'FR', 'SA', 'SO'];
     var monthNames = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
 
+    var hausaufgaben = JSON.parse(<?php echo json_encode($untisAPI->fetchHomeworks($today, $nextWeek)); ?>);
+    console.log(hausaufgaben)
+
     // Hilfsfunktion zum Formatieren von Datumsangaben
     function formatDate(d) {
         return d.getDate() + ". " + monthNames[d.getMonth()] + " " + d.getFullYear();
@@ -341,38 +342,73 @@ echo $untisAPI->fetchMasterData($today, $nextWeek);
         var content = document.createElement('div');
         content.classList.add('cal-content');
 
-        //random content
-        if (Math.random() > 0.1) {
-
-            var listOfPastellColors = ['#FFCDB2', '#FFB4A2', '#E5989B', '#B5838D', '#6D6875'];
-
-            for (let i = 0; i < Math.floor(Math.random() * 4); i++) {
+        var listOfPastellColors = ['#ADD8E6', '#87CEEB', '#4682B4', '#5F9EA0', '#B0E0E6'];
+        for (let i = 0; i < hausaufgaben.length; i++) {
+            let homework = hausaufgaben[i];
+            let homeworkDate = new Date(homework.endDate);
+            if (homeworkDate.getDate() === dateObj.getDate() &&
+                homeworkDate.getMonth() === dateObj.getMonth() &&
+                homeworkDate.getFullYear() === dateObj.getFullYear()) {
                 let event = document.createElement('div');
                 event.classList.add('event');
-                event.innerText = 'Event';
+                event.innerHTML = `<b>${homework.subjects[0]} (${homework.teachers[0]})</b><br>${homework.text.length > 50 ? homework.text.substring(0, 50) + '...' : homework.text}`;
                 let bgColor = listOfPastellColors[Math.floor(Math.random() * listOfPastellColors.length)];
                 event.style.backgroundColor = bgColor;
                 event.style.color = invertColor(bgColor);
 
                 // dunklerer hover
                 event.addEventListener('mouseenter', function() {
-                   this.style.backgroundColor = darkerColor(bgColor);
-                   this.style.color = invertColor(darkerColor(bgColor));
+                    this.style.backgroundColor = darkerColor(bgColor);
+                    this.style.color = invertColor(darkerColor(bgColor));
                 });
 
                 event.addEventListener('mouseleave', function() {
-                   this.style.backgroundColor = bgColor;
-                   this.style.color = invertColor(bgColor);
+                    this.style.backgroundColor = bgColor;
+                    this.style.color = invertColor(bgColor);
                 });
 
+                content.appendChild(event);
 
-                content.appendChild(event);
-                content.appendChild(event);
+                event.addEventListener('click', function() {
+                    open(homework);
+                });
             }
         }
 
+
         cell.appendChild(content);
         container.appendChild(cell);
+    }
+
+    function open(homeworkObject){
+        const modalBackground = document.createElement('div');
+        modalBackground.style.position = 'fixed';
+        modalBackground.style.top = '0';
+        modalBackground.style.left = '0';
+        modalBackground.style.width = '100%';
+        modalBackground.style.height = '100%';
+        modalBackground.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+
+        const modal = document.createElement('div');
+        modal.textContent = homeworkObject.text;
+        modal.style.position = 'fixed';
+        modal.style.top = '50%';
+        modal.style.left = '50%';
+        modal.style.transform = 'translate(-50%, -50%)';
+        modal.style.backgroundColor = 'white';
+        modal.style.padding = '1em';
+        modal.style.borderRadius = '5px';
+        modal.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+        modal.style.zIndex = '1000';
+
+        modalBackground.appendChild(modal);
+
+        modalBackground.addEventListener('click', function() {
+            modalBackground.remove();
+        });
+
+
+        document.body.appendChild(modalBackground);
     }
 
     function invertColor(hex) {
