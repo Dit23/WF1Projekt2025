@@ -251,7 +251,7 @@ class UntisAPI {
 }
 
 // Usage
-header('Content-Type: application/json');
+/* header('Content-Type: application/json');
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -294,3 +294,4 @@ if (isset($_GET['action'])) {
 } else {
     echo json_encode(['error' => 'Missing action']);
 }
+*/
