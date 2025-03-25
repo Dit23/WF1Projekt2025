@@ -466,7 +466,8 @@ global $pdo;
         var items = {
             date: date,
             title: 'Neues Event',
-            description: ''
+            description: '',
+            html: event
         };
         customEvents.push(items);
 
@@ -502,7 +503,7 @@ global $pdo;
 
         const modal = document.createElement('div');
         modal.innerHTML = `
-            <h2>${items.title}</h2>
+            <input value="${items.title}" style="width: 100%; font-size: 1.5em; border: none; background-color: transparent; text-align: left;">
             <p><strong>Datum:</strong> ${items.date}</p>
             <hr>
         `
@@ -525,6 +526,16 @@ global $pdo;
         closeButton.style.padding = '0.5em';
         closeButton.style.cursor = 'pointer';
 
+        //delete button
+        const deleteButton = document.createElement('i');
+        deleteButton.classList.add('fa-solid', 'fa-trash');
+        deleteButton.style.position = 'absolute';
+        deleteButton.style.top = '1em';
+        deleteButton.style.right = '3em';
+        deleteButton.style.fontSize = '1em';
+        deleteButton.style.padding = '0.5em';
+        deleteButton.style.cursor = 'pointer';
+
         closeButton.addEventListener('click', function(){
             modalBackground.classList.add("close-animation")
 
@@ -533,7 +544,20 @@ global $pdo;
             }, 300);
         });
 
+        deleteButton.addEventListener('click', function(){
+            modalBackground.classList.add("close-animation")
+
+            setTimeout(() => {
+                modalBackground.remove();
+                customEvents = customEvents.filter(function(event){
+                    return event !== items;
+                });
+                items.html.remove();
+            }, 300);
+        });
+
         modal.appendChild(closeButton);
+        modal.appendChild(deleteButton);
 
         modalBackground.appendChild(modal);
 
