@@ -277,6 +277,29 @@ include './shared/header.php';
     </ul>
     <h2>5.7 Nutzung des Sportangebotes auf dem Schulgelände</h2>
         <p>Allen Schüler*innen stehen in den Pausen oder in Freistunden Sportgeräte (Bälle, Boule-Kugeln etc.) zur Verfügung. Wie diese ausgeliehen werden können, wird über Aushänge bzw. über den Schüler*innen- Newsletter (über IServ) bekannt gegeben.</p>
+    <h2>6.1 Erziehungs- und Ordnungsmaßnahmen</h2>
+    <p>JA, AUCH SIE SIND GEMEINT! Auch gute Vorsätze geraten im Schulalltag schnell in Vergessenheit. So kommt es immer wieder zu Fehlverhalten, das wir im Interesse Ihrer Mitschüler*innen sowie eines geordneten Schulbetriebs sanktionieren müssen. Folgende Maßnahmen kommen in Betracht:</p>
+    <h3>Erzieherisches Einwirken (§ 53 SchulG)</h3>
+    <p>Zu den erzieherischen Einwirkungen gehören u. a.:</p>
+    <ul>
+        <li>das erzieherische Gespräch</li>
+        <li>die Ermahnung oder die schriftliche Missbilligung des Fehlverhaltens</li>
+        <li>der Ausschluss von der laufenden Unterrichtsstunde</li>
+        <li>die Nacharbeit unter Aufsicht</li>
+        <li>die zeitweise Wegnahme von Gegenständen (z. B. Smartphones)</li>
+    </ul>
+    <p>Sollten die erzieherischen Einwirkungen keinen Erfolg haben, so kommen sogenannte Ordnungsmaßnahmen in Betracht. Diese sind:</p>
+    <ul>
+        <li>der schriftliche Verweis</li>
+        <li>die Überweisung in eine parallele Klasse oder Lerngruppe</li>
+        <li>der vorübergehende Ausschluss vom Unterricht von einem Tag bis zu zwei Wochen und von sonstigen Schulveranstaltungen</li>
+        <li>die Androhung der Entlassung von der Schule</li>
+        <li>die Entlassung von der Schule</li>
+    </ul>
+    <p>Unser Tipp: Lassen Sie es erst gar nicht so weit kommen! Ein frühzeitiges Gespräch mit Ihren Lehrkräften bzw. der Klassenleitung oder aber auch mit den Schulsozialarbeiter*innen kann im Vorfeld viele Unannehmlichkeiten aus dem Weg räumen!</p>
+    <h2>6.2 Sprechtag</h2>
+        <p>Am Dienstag, 17.09.2024 wird es eine Sitzung der Klassenpflegschaft geben. Am Montag, 17.02.2025 findet nachmittags der allgemeine Sprechtag statt.</p>
+        <p>Schriftliche Einladungen zu den Veranstaltungen folgen. Natürlich können jederzeit individuelle Termine für Beratungsgespräche mit den Lehrkräften der Klasse vereinbart werden.</p>
 </body>
 <script>
     //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
