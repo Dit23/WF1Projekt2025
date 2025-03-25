@@ -228,6 +228,19 @@ global $pdo;
         .grid-cell:hover .add-event-button {
             display: block !important;
         }
+
+        .untis-hw textarea {
+            width: 100%;
+            height: 100%;
+            border-radius: 0px;
+            padding: 0.5em;
+            margin-top: 1em;
+            border-color: #ced4da;
+        }
+
+        .untis-hw textarea:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body class="container">
@@ -259,6 +272,7 @@ global $pdo;
     var monthNames = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
     let homeworks = [];
     let requestedMonthes = [];
+    let customEvents = [];
 
     // Hilfsfunktion zum Formatieren von Datumsangaben
     function formatDate(d) {
@@ -448,6 +462,17 @@ global $pdo;
         event.style.color = 'white';
         event.innerHTML = `<strong>Neues Event</strong>`;
         dateCell.insertBefore(event, dateCell.lastElementChild);
+
+        var items = {
+            date: date,
+            title: 'Neues Event',
+            description: ''
+        };
+        customEvents.push(items);
+
+        event.addEventListener('click', function(){
+            openEvent(items);
+        });
     }
 
     function addHomeworkToCell(date, homeworkObject) {
@@ -469,6 +494,61 @@ global $pdo;
             });
             cell.insertBefore(event, cell.lastElementChild);
         }
+    }
+
+    function openEvent(items) {
+        const modalBackground = document.createElement('div');
+        modalBackground.classList.add('untis-hw-background');
+
+        const modal = document.createElement('div');
+        modal.innerHTML = `
+            <h2>${items.title}</h2>
+            <p><strong>Datum:</strong> ${items.date}</p>
+            <hr>
+        `
+        modal.classList.add('untis-hw');
+
+        const textarea = document.createElement('textarea');
+        textarea.value = items.description;
+        textarea.addEventListener('input', function(){
+            items.description = textarea.value;
+        });
+        modal.appendChild(textarea);
+
+        //close button
+        const closeButton = document.createElement('i');
+        closeButton.classList.add('fa-solid', 'fa-times');
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '1em';
+        closeButton.style.right = '1em';
+        closeButton.style.fontSize = '1em';
+        closeButton.style.padding = '0.5em';
+        closeButton.style.cursor = 'pointer';
+
+        closeButton.addEventListener('click', function(){
+            modalBackground.classList.add("close-animation")
+
+            setTimeout(() => {
+                modalBackground.remove();
+            }, 300);
+        });
+
+        modal.appendChild(closeButton);
+
+        modalBackground.appendChild(modal);
+
+        modalBackground.addEventListener('click', function( event ) {
+            if (event.target === modalBackground)
+            {
+                modalBackground.classList.add("close-animation")
+
+                setTimeout(() => {
+                    modalBackground.remove();
+                }, 300);
+            }
+        });
+
+        document.body.appendChild(modalBackground);
     }
 
     function open(homeworkObject){
