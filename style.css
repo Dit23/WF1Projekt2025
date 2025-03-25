@@ -72,6 +72,7 @@
     font-weight: normal;
     list-style-type: none;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .table-of-contents .h2-li {

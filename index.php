@@ -344,11 +344,13 @@ include './shared/header.php';
         });
         tableOfContentsUl.appendChild(li);
         heading.id = heading.innerText;
+
     });
 
     // Add scroll event listener to update active class
     window.addEventListener('scroll', function () {
         var fromTop = window.scrollY + 110;
+        var tableOfContentsUl = document.getElementById('table-of-contents-ul');
 
         headings.forEach(function (heading) {
             var li = Array.from(tableOfContentsUl.querySelectorAll('li')).find(li => li.innerText === heading.innerText);
@@ -360,6 +362,7 @@ include './shared/header.php';
                 nextHeading.offsetTop > fromTop
             ) {
                 li.classList.add('li-active');
+                tableOfContentsUl.scrollTop = li.offsetTop - tableOfContentsUl.clientHeight / 2;
             } else {
                 li.classList.remove('li-active');
             }
