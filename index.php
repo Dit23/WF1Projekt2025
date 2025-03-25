@@ -22,7 +22,7 @@ global $pdo;
 include './shared/header.php';
 ?>
 </div>
-<body class="container" id="index-container">
+<div class="container" id="index-container">
 <div class="table-of-contents">
     <ul id="table-of-contents-ul">
     </ul>
@@ -36,6 +36,7 @@ include './shared/header.php';
             <p>Willkommen auf der Startseite des digitalen Schulplaners.</p>
         </div>
     </div>
+
     <h2>5.2 Schul- und Hausordnung</h2>
     <p>Das Berufskolleg Ostvest versteht sich als Ort des gemeinsamen Lernens. Erfolgreiches Zusammenleben und -arbeiten in unserer Schule sind abhängig vom Wohlbefinden aller Mitglieder der Schulgemeinschaft. Daher sind alle Schüler*innen, Lehrkräfte sowie Eltern und Ausbildende nachdrücklich aufgerufen, bei der demokratischen Gestaltung unseres Schullebens zusammenzuwirken und Verantwortung zu übernehmen. Diese Schul- und Hausordnung schafft die Voraussetzungen für die gemeinsame Arbeit am Berufskolleg Ostvest. Hierbei sind folgende Grundsätze wichtig:</p>
     <ul>
@@ -185,10 +186,10 @@ include './shared/header.php';
             </ol>
             Rechtsbehelfe (Widerspruch und Anfechtungsklage) gegen Ordnungsmaßnahmen nach Satz 1 Nr. 2 und 3 haben keine aufschiebende Wirkung. § 80 Abs. 4, 5, 7 und 8 der Verwaltungsgerichtsordnung bleibt unberührt.
         </li>
-        <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.</ul>
+        <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.
         <li>(5) Maßnahmen nach Absatz 3 Nr. 6 und 7 sind nur zulässig, wenn die Anwesenheit der Schülerin oder des Schülers aus Gründen der Sicherheit nicht verantwortet werden kann. Diese Entscheidung bedarf der Bestätigung durch das Ministerium. Soweit die Schülerin oder der Schüler die Schulpflicht noch nicht erfüllt hat, ist für geeignete Bildungsmaßnahmen zu sorgen.</li>
         <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
-    </div>
+    </ul>
     <h3>5.3 Nutzungsordnung Schulnetz / Rechnerräume</h3>
     <h4>Allgemeines</h4>
         <p>Am Berufskolleg Ostvest gilt die folgende Nutzungsordnung für den Umgang mit Rechnern und die Nutzung des Schulnetzes.</p>
@@ -278,6 +279,7 @@ include './shared/header.php';
     </ul>
     <h3>5.7 Nutzung des Sportangebotes auf dem Schulgelände</h3>
         <p>Allen Schüler*innen stehen in den Pausen oder in Freistunden Sportgeräte (Bälle, Boule-Kugeln etc.) zur Verfügung. Wie diese ausgeliehen werden können, wird über Aushänge bzw. über den Schüler*innen- Newsletter (über IServ) bekannt gegeben.</p>
+</div>
 </body>
 <script>
     //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id
@@ -318,72 +320,6 @@ include './shared/header.php';
         });
     });
 </script>
-<style>
-    #index-container {
-        display: grid;
-        grid-template-columns: 20% auto;
-        grid-template-rows: auto auto auto;
-    }
-
-    .header {
-        grid-row: 1 / 2;
-        grid-column: 1 / 3;
-    }
-
-    .footer {
-        grid-row: 3 / 4;
-        grid-column: 1 / 3;
-    }
-
-    .table-of-contents {
-        grid-row: 2 / 3;
-        grid-column: 1 / 2;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-    }
-
-    .table-of-contents ul {
-        position: sticky;
-        top: 110px;
-    }
-
-    .inhalt {
-        grid-row: 2 / 3;
-        grid-column: 2 / 3;
-        padding: 10px;
-    }
-
-    .table-of-contents ul {
-        font-weight: normal;
-        list-style-type: none;
-        padding: 0;
-    }
-
-
-    .table-of-contents li {
-        color: #2a2b32;
-        transition: color 0.2s linear;
-    }
-    .table-of-contents li:hover {
-        font-weight: bold;
-        color: black;
-        transform: scale(1.05);
-        transition: transform 0.2s ease;
-    }
-
-
-    .li-active {
-        color: #0d6efd !important;
-    }
-
-    .li-active::before {
-        content: '➡️ ';
-    }
-
-    .table-of-contents .h2-li {
-        scale: 110%
-    }
-</style>
 <div class="footer">
 <?php
 include './shared/footer.php';
