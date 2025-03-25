@@ -366,68 +366,6 @@ include './shared/header.php';
         });
     });
 </script>
-<style>
-    #index-container {
-        display: grid;
-        grid-template-columns: 20% auto;
-        grid-template-rows: auto auto auto;
-    }
-
-    .header {
-        grid-row: 1 / 2;
-        grid-column: 1 / 3;
-    }
-
-    .footer {
-        grid-row: 3 / 4;
-        grid-column: 1 / 3;
-    }
-
-    .table-of-contents {
-        grid-row: 2 / 3;
-        grid-column: 1 / 2;
-        padding: 10px;
-        border-right: 1px solid #ccc;
-    }
-
-    .table-of-contents ul {
-        position: sticky;
-        top: 110px;
-    }
-
-    .inhalt {
-        grid-row: 2 / 3;
-        grid-column: 2 / 3;
-        padding: 10px;
-    }
-
-    .table-of-contents ul {
-        font-weight: normal;
-        list-style-type: none;
-        padding: 0;
-    }
-
-
-    .table-of-contents li {
-        color: #2a2b32;
-        transition: color 0.2s linear;
-    }
-    .table-of-contents li:hover {
-        font-weight: bold;
-        color: black;
-        transform: scale(1.05);
-        transition: transform 0.2s ease;
-    }
-
-
-    .li-active {
-        color: #0d6efd !important;
-    }
-
-    .li-active::before {
-        content: '➡️ ';
-    }
-</style>
 <div class="footer">
 <?php
 include './shared/footer.php';
