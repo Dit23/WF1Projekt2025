@@ -185,9 +185,11 @@ include './shared/header.php';
             </ol>
             Rechtsbehelfe (Widerspruch und Anfechtungsklage) gegen Ordnungsmaßnahmen nach Satz 1 Nr. 2 und 3 haben keine aufschiebende Wirkung. § 80 Abs. 4, 5, 7 und 8 der Verwaltungsgerichtsordnung bleibt unberührt.
         </li>
-        <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.</ul>
+        <li>(4) Maßnahmen nach Absatz 3 Nr. 4 und 5 sind nur zulässig, wenn die Schülerin oder der Schüler durch schweres oder wiederholtes Fehlverhalten die Erfüllung der Aufgaben der Schule oder die Rechte anderer ernstlich gefährdet oder verletzt hat. Bei Schulpflichtigen bedarf die Entlassung von der Schule der Bestätigung durch die Schulaufsichtsbehörde, die die Schülerin oder den Schüler einer anderen Schule zuweisen kann. Die Entlassung einer Schülerin oder eines Schülers, die oder der nicht mehr schulpflichtig ist, kann ohne vorherige Androhung erfolgen, wenn die Schülerin oder der Schüler innerhalb eines Zeitraumes von 30 Tagen insgesamt 20 Unterrichtsstunden unentschuldigt versäumt hat.</li>
         <li>(5) Maßnahmen nach Absatz 3 Nr. 6 und 7 sind nur zulässig, wenn die Anwesenheit der Schülerin oder des Schülers aus Gründen der Sicherheit nicht verantwortet werden kann. Diese Entscheidung bedarf der Bestätigung durch das Ministerium. Soweit die Schülerin oder der Schüler die Schulpflicht noch nicht erfüllt hat, ist für geeignete Bildungsmaßnahmen zu sorgen.</li>
         <li>(9) Ordnungsmaßnahmen werden den Eltern schriftlich bekannt gegeben und begründet.</li>
+        </ul>
+    </ul>
     <h2>5.3 Nutzungsordnung Schulnetz / Rechnerräume</h2>
     <h3>Allgemeines</h3>
         <p>Am Berufskolleg Ostvest gilt die folgende Nutzungsordnung für den Umgang mit Rechnern und die Nutzung des Schulnetzes.</p>
@@ -326,6 +328,7 @@ include './shared/header.php';
         <p>Beendigung des Schulverhältnisses</p>
         <p>(1) Das Schulverhältnis endet, wenn …</p>
         <p>8. die nicht mehr schulpflichtige Schülerin oder der nicht mehr schulpflichtige Schüler trotz schriftlicher Erinnerung ununterbrochen 20 Unterrichtstage unentschuldigt fehlt, […]</p>
+</div>
 </body>
 <script>
     //scan den #inhalt nach h1 und h2 und fügt sie in die #table-of-contents-ul ein und gebe denen eine id

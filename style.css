@@ -67,8 +67,9 @@
 .table-of-contents ul {
     position: sticky;
     top: 110px;
-    overflow: scroll;
-    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 110px);
     font-weight: normal;
     list-style-type: none;
     padding: 0;
@@ -87,14 +88,12 @@
 
 .table-of-contents li {
     color: #342f7e;
-    transition: color 0.2s linear;
+    transition: color 0.2s linear, margin-left 0.2s;
 }
 
 .table-of-contents li:hover {
-    /*font-weight: bold;*/
-    /*color: #342f7e;*/
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+    margin-left: 7px;
+    transition: margin-left 0.2s;
 }
 
 .li-active {
