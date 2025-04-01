@@ -52,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Login erfolgreich']);
             break;
-
         case 'createNewClassAccount':
             if (isset($_POST['username']) === false || isset($_POST['password']) === false) {
                 echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Benutzername oder Passwort nicht gefunden']);
@@ -76,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Benutzer erfolgreich erstellt']);
             break;
-
         case 'logout':
             session_destroy();
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Logout erfolgreich']);
@@ -142,6 +140,96 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $statement->execute();
 
             echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Klasse erfolgreich aktualisiert']);
+            break;
+        case 'createEvent':
+            if (isset($_POST['title']) === false || isset($_POST['start']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Titel oder Startzeit nicht gefunden']);
+                die();
+            }
+
+            if (isset($_SESSION['userId']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            $title = $_POST['title'];
+            $start = $_POST['start'];
+            $description = $_POST['description'] ?? null;
+
+            $statement = $pdo->prepare('INSERT INTO customEvents (klassenId, name, description, start) VALUES (:klassenId, :name, :description, :start)');
+            $statement->bindParam(':klassenId', $_SESSION['userId']);
+            $statement->bindParam(':name', $title);
+            $statement->bindParam(':description', $description);
+            $statement->bindParam(':start', $start);
+            $statement->execute();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Event erfolgreich erstellt', 'id' => $pdo->lastInsertId()]);
+            break;
+        case 'getEvents':
+            if (isset($_SESSION['userId']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            $statement = $pdo->prepare('SELECT * FROM customEvents WHERE klassenId = :klassenId');
+            $statement->bindParam(':klassenId', $_SESSION['userId']);
+            $statement->execute();
+
+            $events = $statement->fetchAll();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'events' => $events]);
+            break;
+
+        case 'deleteEvent':
+            if (isset($_POST['id']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'ID nicht gefunden']);
+                die();
+            }
+
+            if (isset($_SESSION['userId']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            $id = $_POST['id'];
+
+            $statement = $pdo->prepare('DELETE FROM customEvents WHERE id = :id AND klassenId = :klassenId');
+            $statement->bindParam(':id', $id);
+            $statement->bindParam(':klassenId', $_SESSION['userId']);
+            $statement->execute();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Event erfolgreich gelöscht']);
+            break;
+
+        case 'updateEvent':
+            //var formData = new FormData();
+            //            formData.append('method', 'updateEvent');
+            //            formData.append('id', items.id);
+            //            formData.append('title', items.title);
+            //            formData.append('description', items.description);
+
+            if (isset($_POST['id']) === false || isset($_POST['title']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'ID oder Titel nicht gefunden']);
+                die();
+            }
+
+            if (isset($_SESSION['userId']) === false) {
+                echo json_encode(['success' => false, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Nicht autorisiert']);
+                die();
+            }
+
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $description = $_POST['description'] ?? null;
+
+            $statement = $pdo->prepare('UPDATE customEvents SET name = :name, description = :description WHERE id = :id AND klassenId = :klassenId');
+            $statement->bindParam(':id', $id);
+            $statement->bindParam(':klassenId', $_SESSION['userId']);
+            $statement->bindParam(':name', $title);
+            $statement->bindParam(':description', $description);
+            $statement->execute();
+
+            echo json_encode(['success' => true, 'requestedAt' => date('Y-m-d H:i:s'), 'message' => 'Event erfolgreich aktualisiert']);
             break;
 
 

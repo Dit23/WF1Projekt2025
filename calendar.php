@@ -216,7 +216,7 @@ global $pdo;
             text-align: center;
             font-size: 1em;
             cursor: pointer;
-            background-color: #007bff;
+            background-color: #73a9e6;
             color: white;
             border-radius: 5em;
             padding: 0.5em;
@@ -277,6 +277,45 @@ global $pdo;
     // Hilfsfunktion zum Formatieren von Datumsangaben
     function formatDate(d) {
         return d.getDate() + ". " + monthNames[d.getMonth()] + " " + d.getFullYear();
+    }
+
+    function fetchCustomEvents() {
+        var formData = new FormData();
+        formData.append('method', 'getEvents');
+
+        fetch('api', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                data.events.forEach(function(event){
+                    const dateCell = document.querySelector('[data-date="' + event.start.substring(0, 10) + '"]');
+                    const eventElement = document.createElement('div');
+                    eventElement.classList.add('event');
+                    eventElement.style.backgroundColor = '#73a9e6';
+                    eventElement.style.color = 'white';
+                    eventElement.innerHTML = `<strong>${event.name.length > 13 ? event.name.substring(0, 13) + '...' : event.name}</strong><br><p>${event.description.length > 50 ? event.description.substring(0, 50) + '...' : event.description}</p>`;
+                    dateCell.insertBefore(eventElement, dateCell.lastElementChild);
+
+                    var items = {
+                        date: event.start.substring(0, 10),
+                        title: event.name,
+                        description: event.description,
+                        html: eventElement,
+                        id: event.id
+                    };
+                    customEvents.push(items);
+
+                    eventElement.addEventListener('click', function(){
+                        openEvent(items);
+                    });
+                });
+            } else {
+                console.error(data.message);
+            }
+        });
     }
 
     // Render-Funktion, die anhand des aktuellen Views die passende Darstellung erzeugt
@@ -413,6 +452,8 @@ global $pdo;
 
         fetchHomeworks();
 
+        fetchCustomEvents();
+
         homeworks.forEach(function(homework){
             addHomeworkToCell(homework.endDate, homework);
         });
@@ -455,24 +496,43 @@ global $pdo;
     }
 
     function createNewEvent(date){
-        const dateCell = document.querySelector('[data-date="' + date + '"]');
-        const event = document.createElement('div');
-        event.classList.add('event');
-        event.style.backgroundColor = '#007bff';
-        event.style.color = 'white';
-        event.innerHTML = `<strong>Neues Event</strong>`;
-        dateCell.insertBefore(event, dateCell.lastElementChild);
 
-        var items = {
-            date: date,
-            title: 'Neues Event',
-            description: '',
-            html: event
-        };
-        customEvents.push(items);
+        var formData = new FormData();
+        formData.append('method', 'createEvent');
+        formData.append('title', 'Neues Event');
+        formData.append('start', date + ' 00:00:00');
+        formData.append('description', '');
 
-        event.addEventListener('click', function(){
-            openEvent(items);
+        fetch('api', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const dateCell = document.querySelector('[data-date="' + date + '"]');
+                const event = document.createElement('div');
+                event.classList.add('event');
+                event.style.backgroundColor = '#73a9e6';
+                event.style.color = 'white';
+                event.innerHTML = `<strong>Neues Event</strong>`;
+                dateCell.insertBefore(event, dateCell.lastElementChild);
+
+                var items = {
+                    date: date,
+                    title: 'Neues Event',
+                    description: '',
+                    html: event,
+                    id: data.id
+                };
+                customEvents.push(items);
+
+                event.addEventListener('click', function(){
+                    openEvent(items);
+                });
+            } else {
+                console.error(data.message);
+            }
         });
     }
 
@@ -483,7 +543,22 @@ global $pdo;
 
         if (cell) {
             var listOfPastellColors = ['#ADD8E6', '#87CEEB', '#4682B4', '#5F9EA0', '#B0E0E6'];
-            homeworkObject.color = listOfPastellColors[Math.floor(Math.random() * listOfPastellColors.length)];
+
+
+            function hashStringToInt(str) {
+                var hash = 0;
+                for (var i = 0; i < str.length; i++) {
+                    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+                }
+                return hash;
+            }
+
+            function pickColorFromHash(hash, colors) {
+                return colors[Math.abs(hash) % colors.length];
+            }
+
+            var hash = hashStringToInt(homeworkObject.subjects[0]);
+            homeworkObject.color = pickColorFromHash(hash, listOfPastellColors);
 
             var event = document.createElement('div');
             event.classList.add('event');
@@ -502,11 +577,47 @@ global $pdo;
         modalBackground.classList.add('untis-hw-background');
 
         const modal = document.createElement('div');
-        modal.innerHTML = `
-            <input value="${items.title}" style="width: 100%; font-size: 1.5em; border: none; background-color: transparent; text-align: left;">
-            <p><strong>Datum:</strong> ${items.date}</p>
-            <hr>
-        `
+        const input = document.createElement('input');
+        input.value = items.title;
+        input.style.width = '100%';
+        input.style.fontSize = '1.5em';
+        input.style.border = 'none';
+        input.style.backgroundColor = 'transparent';
+        input.style.textAlign = 'left';
+
+        const dateParagraph = document.createElement('p');
+        dateParagraph.innerHTML = `<strong>Datum:</strong> ${items.date}`;
+
+        const hr = document.createElement('hr');
+
+        input.addEventListener('input', function(){
+            items.title = input.value;
+            items.html.querySelector('strong').innerText = input.value.length > 13 ? input.value.substring(0, 13) + '...' : input.value;
+
+            var formData = new FormData();
+            formData.append('method', 'updateEvent');
+            formData.append('id', items.id);
+            formData.append('title', items.title);
+            formData.append('description', items.description);
+
+            fetch('api', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Event updated');
+                } else {
+                    console.error(data.message);
+                }
+            });
+        });
+
+        modal.appendChild(input);
+        modal.appendChild(dateParagraph);
+        modal.appendChild(hr);
+
         modal.classList.add('untis-hw');
 
         const textarea = document.createElement('textarea');
@@ -515,6 +626,30 @@ global $pdo;
             items.description = textarea.value;
         });
         modal.appendChild(textarea);
+
+        textarea.addEventListener('input', function(){
+            items.description = textarea.value;
+            items.html.querySelector('p').innerText = textarea.value.length > 50 ? textarea.value.substring(0, 50) + '...' : textarea.value;
+
+            var formData = new FormData();
+            formData.append('method', 'updateEvent');
+            formData.append('id', items.id);
+            formData.append('title', items.title);
+            formData.append('description', items.description);
+
+            fetch('api', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Event updated');
+                } else {
+                    console.error(data.message);
+                }
+            });
+        });
 
         //close button
         const closeButton = document.createElement('i');
@@ -545,15 +680,31 @@ global $pdo;
         });
 
         deleteButton.addEventListener('click', function(){
-            modalBackground.classList.add("close-animation")
 
-            setTimeout(() => {
-                modalBackground.remove();
-                customEvents = customEvents.filter(function(event){
-                    return event !== items;
-                });
-                items.html.remove();
-            }, 300);
+            var formData = new FormData();
+            formData.append('method', 'deleteEvent');
+            formData.append('id', items.id);
+
+            fetch('api', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    modalBackground.classList.add("close-animation")
+
+                    setTimeout(() => {
+                        modalBackground.remove();
+                        customEvents = customEvents.filter(function(event){
+                            return event !== items;
+                        });
+                        items.html.remove();
+                    }, 300);
+                } else {
+                    console.error(data.message);
+                }
+            });
         });
 
         modal.appendChild(closeButton);

@@ -40,6 +40,21 @@ CREATE TABLE IF NOT EXISTS klassen (
 )
 ');
 
+# CustomEvents
+# | id (index) | klassenId (foreign key) | name | description | start |
+
+//MySQL PhpMyAdmin Syntax
+$pdo->query('
+CREATE TABLE IF NOT EXISTS customEvents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    klassenId INT,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    start TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (klassenId) REFERENCES klassen(id)
+)
+');
+
 # Wenn die Tabelle leer ist, wird ein Standard Account erstellt mit dem Namen "admin" und dem Passwort "admin"
 $statement = $pdo->prepare('SELECT * FROM klassen');
 $statement->execute();
