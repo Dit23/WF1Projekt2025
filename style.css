@@ -76,8 +76,8 @@
     scroll-behavior: smooth;
 }
 
-.table-of-contents .h2-li {
-    color: #4999c2; !important;
+.table-of-contents ul::-webkit-scrollbar {
+    width: 0;
 }
 
 .inhalt {
