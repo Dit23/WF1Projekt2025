@@ -10,6 +10,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="./" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item" style="margin-left: 10px"><a href="./niklas.php" class="nav-link active" aria-current="page">Niklas</a></li>
             <li class="nav-item" style="margin-left: 10px"><a href="./calendar" class="nav-link active" aria-current="page">Kalender</a></li>
             <li class="nav-item"><a href="#" id="logoutButton" class="nav-link">Logout</a></li>
             <?php
